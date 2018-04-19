@@ -10,10 +10,24 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		defaultPrior = 0.0;
+		posProb = new double[1];
+		numberOfTrainingSamples = 0;
+		count = new int[1];
+		testLogLikelihood = 0.0;
+		numberOfTestSamples = 0;
+		Boolean firstSampleFlag = true;
 		String trainingFile = args[0];
 		IndependentBayesianNetwork bn = new IndependentBayesianNetwork();
 		bn.processData(trainingFile, true);
 		learnParameters();
+		for(double d : posProb) {
+			System.out.println(d);
+		}
+//		System.out.println("--");
+//		for(double d : posProb) {
+//			System.out.println(1-d);
+//		}
 		String testFile = args[1];
 		bn.processData(testFile, false);
 		System.out.println(testFile+" : "+(testLogLikelihood/numberOfTestSamples));

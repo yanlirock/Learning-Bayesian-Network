@@ -1,15 +1,16 @@
 Q1:
 
 datasets/accidents.test.data : -65.72876882533004
-datasets/baudio.test.data : -71.62419630939083
-datasets/bnetflix.test.data : -95.33339264841315
-datasets/dna.test.data : -121.11119926564277
-datasets/jester.test.data : -145.33381844405335
-datasets/kdd.test.data : -43.76562850959364
-datasets/msnbc.test.data : -25.66049867925733
-datasets/nltcs.test.data : -25.91114790260575
-datasets/plants.test.data : -27.92599285648421
-datasets/r52.test.data : -31.786793859872184
-
+datasets/baudio.test.data : -71.17812237792157
+datasets/bnetflix.test.data : -93.14242459241842
+datasets/dna.test.data : -144.8262439010813
+datasets/jester.test.data : -92.16390258134399
+datasets/kdd.test.data : -3.5284530006024375
+datasets/msnbc.test.data : -9.767254163763425
+datasets/nltcs.test.data : -13.32128520270276
+datasets/plants.test.data : -45.10761938833193
+datasets/r52.test.data : -162.48463620264258
 
 Q2: 
+
+
