@@ -19,7 +19,7 @@ public class Test {
 		for(String[] dataset : datasets) {
 			long startTime = System.currentTimeMillis();
 			arguments = new String[] {"datasets/"+dataset[1], "datasets/"+dataset[0]};
-			IndependentBayesianNetwork bn = new IndependentBayesianNetwork();
+			TreeBayesianNetwork bn = new TreeBayesianNetwork();
 			bn.run(arguments);
 			long endTime   = System.currentTimeMillis();
 			System.out.println("time: "+ (endTime - startTime)/1000);

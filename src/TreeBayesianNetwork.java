@@ -14,7 +14,7 @@ import org.jgrapht.traverse.DepthFirstIterator;
 import org.jgrapht.traverse.GraphIterator;
 
 
-public class ChowLiuBayesianNetwork extends ParameterLearningBN{
+public class TreeBayesianNetwork extends ParameterLearningBN{
 	
 	List<int[]> trainingData;
 	List<Double> dataWeights;
@@ -40,9 +40,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		String trainingFile = args[0];
 		processData(trainingFile, true);
 		this.network = learnBNStructure();
-		//		System.out.println(network.toString());
 		this.networkParameters = learnBNParameters();
-		//		System.out.println(this.networkParameters);
 		String testFile = args[1];
 		processData(testFile, false);
 		System.out.println(testFile+" : "+(this.testLogLikelihood/this.numberOfTestSamples));
