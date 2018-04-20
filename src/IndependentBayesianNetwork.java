@@ -1,14 +1,14 @@
 public class IndependentBayesianNetwork extends ParameterLearningBN {
 
-	static double defaultPrior = 0.0;
-	static double[] posProb = new double[1];
-	static int numberOfTrainingSamples = 0;
-	static int[] count = new int[1];
-	static double testLogLikelihood = 0.0;
-	static int numberOfTestSamples = 0;
+	double defaultPrior = 0.0;
+	double[] posProb = new double[1];
+	int numberOfTrainingSamples = 0;
+	int[] count = new int[1];
+	double testLogLikelihood = 0.0;
+	int numberOfTestSamples = 0;
 	Boolean firstSampleFlag = true;
 
-	public static void main(String[] args) {
+	public void run(String[] args) {
 		// TODO Auto-generated method stub
 		defaultPrior = 0.0;
 		posProb = new double[1];
@@ -18,15 +18,14 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 		numberOfTestSamples = 0;
 		Boolean firstSampleFlag = true;
 		String trainingFile = args[0];
-		IndependentBayesianNetwork bn = new IndependentBayesianNetwork();
-		bn.processData(trainingFile, true);
+		processData(trainingFile, true);
 		learnParameters();
 		String testFile = args[1];
-		bn.processData(testFile, false);
+		processData(testFile, false);
 		System.out.println(testFile+" : "+(testLogLikelihood/numberOfTestSamples));
 	}	
 
-	protected void test(String[] sample) {
+	public void test(String[] sample) {
 		for(int i = 0; i < sample.length; i++) { 
 			if(Integer.parseInt(sample[i]) == 1) {
 				testLogLikelihood += (Math.log(posProb[i])/Math.log(2));
@@ -37,7 +36,7 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 		numberOfTestSamples++;
 	}
 
-	private static void learnParameters() {
+	private void learnParameters() {
 		// Add One Laplace smoothing. 
 		defaultPrior = (double) 1/(numberOfTrainingSamples+2);
 		posProb = new double[count.length];
@@ -49,7 +48,7 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 		}
 	}
 
-	protected void train(String[] sample) {
+	public void train(String[] sample) {
 		if(firstSampleFlag) {
 			count = new int[sample.length];
 			firstSampleFlag = false;

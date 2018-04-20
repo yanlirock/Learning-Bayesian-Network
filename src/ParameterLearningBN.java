@@ -4,8 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public abstract class ParameterLearningBN {
-	
-	protected void processData(String filename, Boolean trainingFlag) {
+
+
+	public void processData(String filename, Boolean trainingFlag) {
 		// TODO Auto-generated method stub
 		BufferedReader br = null;
 		try {
@@ -39,7 +40,7 @@ public abstract class ParameterLearningBN {
 		}		
 	}
 
-	protected abstract void test(String[] sample);
+	public abstract void test(String[] sample);
 
-	protected abstract void train(String[] sample) ;
+	public abstract void train(String[] sample) ;
 }

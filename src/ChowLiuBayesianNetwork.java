@@ -15,51 +15,48 @@ import org.jgrapht.traverse.GraphIterator;
 
 
 public class ChowLiuBayesianNetwork extends ParameterLearningBN{
-
-	static List<int[]> trainingData;
-	static List<Double> dataWeights;
-	static Boolean firstSampleFlag = true;
-	static double[] posProb = new double[1];
-	static int numberOfTrainingSamples = 0;
-	static int[] count = new int[1];
-	static final int[][] values = {{0,0},{0,1},{1,1},{1,0}};
-	static DirectedGraph<Integer, DefaultEdge> network ;
-	static List<Object> networkParameters ;
-	static double testLogLikelihood = 0.0;
-	static int numberOfTestSamples = 0;
 	
-	public static void main(String[] args) {
+	List<int[]> trainingData;
+	List<Double> dataWeights;
+	Boolean firstSampleFlag = true;
+	int numberOfTrainingSamples = 0;
+	int[] count = new int[1];
+	final int[][] values = {{0,0},{0,1},{1,1},{1,0}};
+	DirectedGraph<Integer, DefaultEdge> network ;
+	List<Object> networkParameters ;
+	double testLogLikelihood = 0.0;
+	int numberOfTestSamples = 0;
+
+	public void run(String[] args) {
 		// TODO Auto-generated method stub
 		trainingData = null;
-		firstSampleFlag = true;
-		posProb = new double[1];
-		numberOfTrainingSamples = 0;
-		count = new int[1];
-		testLogLikelihood = 0.0;
-		networkParameters = null;
-		network = null;
-		numberOfTestSamples = 0;
+		this.firstSampleFlag = true;
+		this.numberOfTrainingSamples = 0;
+		this.count = new int[1];
+		this.testLogLikelihood = 0.0;
+		this.networkParameters = null;
+		this.network = null;
+		this.numberOfTestSamples = 0;
 		String trainingFile = args[0];
-		ChowLiuBayesianNetwork bn = new ChowLiuBayesianNetwork();
-		bn.processData(trainingFile, true);
-		network = learnBNStructure();
-//		System.out.println(network.toString());
-		networkParameters = learnBNParameters(network);
-//		System.out.println(networkParameters);
+		processData(trainingFile, true);
+		this.network = learnBNStructure();
+		//		System.out.println(network.toString());
+		this.networkParameters = learnBNParameters();
+		//		System.out.println(this.networkParameters);
 		String testFile = args[1];
-		bn.processData(testFile, false);
-		System.out.println(testFile+" : "+(testLogLikelihood/numberOfTestSamples));
+		processData(testFile, false);
+		System.out.println(testFile+" : "+(this.testLogLikelihood/this.numberOfTestSamples));
 	}
 
-	private static List<Object> learnBNParameters(DirectedGraph<Integer, DefaultEdge> network) {
+	private  List<Object> learnBNParameters() {
 		Integer s, v =0;
 		Set<DefaultEdge> edges;
 		List<Object> parameters = new ArrayList<>();
-		for(v = 0; v < count.length; v++) {
+		for(v = 0; v < this.count.length; v++) {
 			// Any variable will have exactly one parent or zero
-			edges = network.incomingEdgesOf(v);
+			edges = this.network.incomingEdgesOf(v);
 			if(!edges.isEmpty()) {
-				s = network.getEdgeSource(edges.iterator().next());
+				s = this.network.getEdgeSource(edges.iterator().next());
 				parameters.add(learnCPT(s,v));
 			}
 			else
@@ -68,11 +65,11 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		return parameters;
 	}
 
-	private static Double learnCPT(Integer v) {
-		return (double) (count[v]+2)/(numberOfTrainingSamples+4);
+	private  Double learnCPT(Integer v) {
+		return (double) (this.count[v]+2)/(this.numberOfTrainingSamples+4);
 	}
 
-	private static Double[] learnCPT(Integer s, Integer v) {
+	private  Double[] learnCPT(Integer s, Integer v) {
 		// TODO Auto-generated method stub
 		double[] jointcount = getCounts(s,v);
 		Double[] prob = new Double[2];
@@ -82,30 +79,30 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 			System.out.println("Error prob is negative");
 			System.exit(0);
 		}
-			
+
 		return prob;
 	}
 
-	private static DirectedGraph<Integer, DefaultEdge> learnBNStructure() {
+	private  DirectedGraph<Integer, DefaultEdge> learnBNStructure() {
 		WeightedPseudograph<Integer, DefaultWeightedEdge> weightedGraph = new WeightedPseudograph<>(DefaultWeightedEdge.class);
 		DirectedGraph<Integer, DefaultEdge> directedGraph = new DefaultDirectedGraph<>(DefaultEdge.class);
-		for(int i=0; i< count.length; i++) {
+		for(int i=0; i< this.count.length; i++) {
 			weightedGraph.addVertex(i);
 			directedGraph.addVertex(i);
 		}
-		for(int i=0; i< count.length; i++) {
-			for(int j=i+1; j< count.length; j++) {
-				
-					DefaultWeightedEdge e = new DefaultWeightedEdge();
-					weightedGraph.addEdge(i, j, e);
-					double mi = -1 * calculateMutualIndependence(i, j);
-					weightedGraph.setEdgeWeight(e, mi);				
+		for(int i=0; i< this.count.length; i++) {
+			for(int j=i+1; j< this.count.length; j++) {
+
+				DefaultWeightedEdge e = new DefaultWeightedEdge();
+				weightedGraph.addEdge(i, j, e);
+				double mi = -1 * calculateMutualIndependence(i, j);
+				weightedGraph.setEdgeWeight(e, mi);				
 			}
 		}
 		KruskalMinimumSpanningTree<Integer, DefaultWeightedEdge> mstAlgo = new KruskalMinimumSpanningTree<>(weightedGraph);
 		SpanningTree<DefaultWeightedEdge> mst = mstAlgo.getSpanningTree();
 		Set<DefaultWeightedEdge> edges = mst.getEdges();
-		int[] edgeCount = new int[count.length];
+		int[] edgeCount = new int[this.count.length];
 		for(DefaultWeightedEdge edge: edges) {
 			edgeCount[weightedGraph.getEdgeSource(edge)] ++;
 			edgeCount[weightedGraph.getEdgeTarget(edge)] ++;
@@ -114,7 +111,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		removeEdges.removeAll(edges);
 		weightedGraph.removeAllEdges(removeEdges);
 		GraphIterator<Integer, DefaultWeightedEdge> iterator = 
-	                new DepthFirstIterator<Integer, DefaultWeightedEdge>(weightedGraph, 6);		
+				new DepthFirstIterator<Integer, DefaultWeightedEdge>(weightedGraph);		
 		Integer v;
 		Integer t;
 		while (iterator.hasNext()) {
@@ -127,27 +124,27 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 				if(!directedGraph.containsEdge(t, v))
 					directedGraph.addEdge(v,t);
 			}
-        }
-        return directedGraph;
+		}
+		return directedGraph;
 	}
 
-	private static double calculateMutualIndependence(int X, int Y) {
+	private  double calculateMutualIndependence(int X, int Y) {
 		double mutualInfo = 0.0, c_X, c_Y, N, mi;
 		double[] jointCount = getCounts(X, Y);
 		for (int i = 0; i< values.length ; i++) {
-			 if(values[i][0]==1) // Add one in Mutual Info
-				 c_X = count[X] + 2;
-			 else
-				 c_X = numberOfTrainingSamples - count[X] + 2;
-			 if(values[i][1]==1)
-				 c_Y = count[Y] + 2;
-			 else
-				 c_Y = numberOfTrainingSamples - count[Y] + 2;
-			 if (jointCount[i] ==0 )
-				 continue;
-			 N = (double) numberOfTrainingSamples +4;
-			 mi = jointCount[i]*Math.log((jointCount[i] * N)/(c_X*c_Y))/N;
-			 mutualInfo += mi ;
+			if(values[i][0]==1) // Add one in Mutual Info
+				c_X = this.count[X] + 2;
+			else
+				c_X = this.numberOfTrainingSamples - this.count[X] + 2;
+			if(values[i][1]==1)
+				c_Y = this.count[Y] + 2;
+			else
+				c_Y = this.numberOfTrainingSamples - this.count[Y] + 2;
+			if (jointCount[i] ==0 )
+				continue;
+			N = (double) this.numberOfTrainingSamples +4;
+			mi = jointCount[i]*Math.log((jointCount[i] * N)/(c_X*c_Y))/N;
+			mutualInfo += mi ;
 		}
 		if(mutualInfo < 0 || Double.isNaN(mutualInfo)) {
 			System.out.println(" Error Mutual info negative edge: or NaN"+ X +" - "+ Y);
@@ -155,22 +152,22 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		}
 		return mutualInfo;
 	}
-	
-	
-	private static double[] getCounts(int x, int y) {
+
+
+	private  double[] getCounts(int x, int y) {
 		double[] jointCounts = new double[]{1.0,1.0,1.0,1.0};// Add One in counts
 		for(int j= 0; j < trainingData.size(); j++ ) {
 			int[] sample = trainingData.get(j); 
 			for(int i = 0; i < values.length; i++) {
 				if(sample[x]==values[i][0] && sample[y]==values[i][1])
-					jointCounts[i]+= dataWeights.get(j);
+					jointCounts[i]+= this.dataWeights.get(j);
 			}
 		}
 		return jointCounts;
 	}
 
 	@Override
-	protected void test(String[] sample) {
+	public void test(String[] sample) {
 		// TODO Auto-generated method stub
 		Integer[] data = new Integer[sample.length];
 		for(int i = 0; i < sample.length; i++) { 
@@ -179,40 +176,40 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		double posProb;
 		Set<DefaultEdge> edges;
 		int s;
-		
+
 		for(int i = 0; i < sample.length; i++) {
-			edges = network.incomingEdgesOf(i);
+			edges = this.network.incomingEdgesOf(i);
 			if(!edges.isEmpty()) {
-				s = network.getEdgeSource(edges.iterator().next());
-				posProb = ((Double[]) networkParameters.get(i))[data[s]];
+				s = this.network.getEdgeSource(edges.iterator().next());
+				posProb = ((Double[]) this.networkParameters.get(i))[data[s]];
 			}
 			else
-				posProb = (Double) networkParameters.get(i);
+				posProb = (Double) this.networkParameters.get(i);
 			if(data[i]==1)
-				testLogLikelihood += (Math.log(posProb)/Math.log(2));
+				this.testLogLikelihood += (Math.log(posProb)/Math.log(2));
 			else
-				testLogLikelihood += (Math.log(1-posProb)/Math.log(2));
+				this.testLogLikelihood += (Math.log(1-posProb)/Math.log(2));
 		}
-		numberOfTestSamples++;
+		this.numberOfTestSamples++;
 	}
 
 	@Override
-	protected void train(String[] sample) {
-		if(firstSampleFlag) {
+	public void train(String[] sample) {
+		if(this.firstSampleFlag) {
 			trainingData = new ArrayList<int[]>();
-			dataWeights = new ArrayList<Double>();
-			count = new int[sample.length];
-			firstSampleFlag = false;
+			this.dataWeights = new ArrayList<Double>();
+			this.count = new int[sample.length];
+			this.firstSampleFlag = false;
 		}
 		int[] s = new int[sample.length];
 		for(int i = 0; i < sample.length; i++) {
 			s[i] = Integer.parseInt(sample[i]);
-			count[i] += s[i];
+			this.count[i] += s[i];
 		}
 		trainingData.add(s);
-		dataWeights.add(1.0);
-		numberOfTrainingSamples++;
+		this.dataWeights.add(1.0);
+		this.numberOfTrainingSamples++;
 	}
-	
-	
+
+
 }
