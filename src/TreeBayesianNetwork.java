@@ -26,6 +26,16 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 	List<Object> networkParameters ;
 	double testLogLikelihood = 0.0;
 	int numberOfTestSamples = 0;
+	
+	public TreeBayesianNetwork() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
+	
+	public TreeBayesianNetwork(List<int[]> trainingData,List<Double> dataWeights,int[] count) {
+		// TODO Auto-generated constructor stub
+		super();
+	}
 
 	public void run(String[] args) {
 		// TODO Auto-generated method stub
