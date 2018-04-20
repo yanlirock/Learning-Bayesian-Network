@@ -11,7 +11,7 @@ public class Test {
 			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data"},  
 			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data"}, 
 			{"plants.test.data", "plants.ts.data", "plants.valid.data"},  
-			{"r52.test.data", "r52.ts.data", "r52.valid.data"}
+//			{"r52.test.data", "r52.ts.data", "r52.valid.data"}
 			};
 	
 	public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class Test {
 		for(String[] dataset : datasets) {
 			long startTime = System.currentTimeMillis();
 			arguments = new String[] {"datasets/"+dataset[1], "datasets/"+dataset[0]};
-			IndependentBayesianNetwork.main(arguments);
+			ChowLiuBayesianNetwork.main(arguments);
 			long endTime   = System.currentTimeMillis();
 			System.out.println("time: "+ (endTime - startTime)/1000);
 		}

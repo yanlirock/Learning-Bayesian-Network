@@ -132,23 +132,24 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	}
 
 	private static double calculateMutualIndependence(int X, int Y) {
-		double mutualInfo = 0.0, c_X, c_Y;
+		double mutualInfo = 0.0, c_X, c_Y, N, mi;
 		int[] jointCount = getCounts(X, Y);
 		for (int i = 0; i< values.length ; i++) {
-			 if(values[i][0]==1)
-				 c_X = count[X];
+			 if(values[i][0]==1) // Add one in Mutual Info
+				 c_X = count[X] + 2;
 			 else
-				 c_X = numberOfTrainingSamples - count[X];
+				 c_X = numberOfTrainingSamples - count[X] + 2;
 			 if(values[i][1]==1)
-				 c_Y = count[Y];
+				 c_Y = count[Y] + 2;
 			 else
-				 c_Y = numberOfTrainingSamples - count[Y];
+				 c_Y = numberOfTrainingSamples - count[Y] + 2;
 			 if (jointCount[i] ==0 )
 				 continue;
-			 double mi = ( jointCount[i]*Math.log(((double) jointCount[i] * numberOfTrainingSamples)/(c_X*c_Y))/numberOfTrainingSamples);
+			 N = (double) numberOfTrainingSamples +4;
+			 mi = jointCount[i]*Math.log((double) (jointCount[i] * N)/(c_X*c_Y))/N;
 			 mutualInfo += mi ;
 		}
-		if(mutualInfo<0 || Double.isNaN(mutualInfo)) {
+		if(mutualInfo < 0 || Double.isNaN(mutualInfo)) {
 			System.out.println(" Error Mutual info negative edge: or NaN"+ X +" - "+ Y);
 			System.exit(0);
 		}
@@ -157,7 +158,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	
 	
 	private static int[] getCounts(int x, int y) {
-		int[] jointCounts = new int[values.length];
+		int[] jointCounts = new int[]{1,1,1,1};// Add One in counts
 		for(int[] sample : trainingData ) {
 			for(int i = 0; i < values.length; i++) {
 				if(sample[x]==values[i][0] && sample[y]==values[i][1])
@@ -174,7 +175,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		for(int i = 0; i < sample.length; i++) { 
 			data[i] = Integer.parseInt(sample[i]);
 		}
-		double posProb, testLogLikelihood = 0.0;
+		double posProb;
 		Set<DefaultEdge> edges;
 		int s;
 		
@@ -192,7 +193,6 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 				testLogLikelihood += (Math.log(1-posProb)/Math.log(2));
 		}
 		numberOfTestSamples++;
-		System.out.println(numberOfTestSamples +"-->"+ testLogLikelihood);
 	}
 
 	@Override
