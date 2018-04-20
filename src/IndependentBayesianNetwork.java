@@ -21,13 +21,6 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 		IndependentBayesianNetwork bn = new IndependentBayesianNetwork();
 		bn.processData(trainingFile, true);
 		learnParameters();
-		for(double d : posProb) {
-			System.out.println(d);
-		}
-//		System.out.println("--");
-//		for(double d : posProb) {
-//			System.out.println(1-d);
-//		}
 		String testFile = args[1];
 		bn.processData(testFile, false);
 		System.out.println(testFile+" : "+(testLogLikelihood/numberOfTestSamples));

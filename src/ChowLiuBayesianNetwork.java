@@ -21,13 +21,11 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	static double[] posProb = new double[1];
 	static int numberOfTrainingSamples = 0;
 	static int[] count = new int[1];
-	static int[][] values = {{0,0},{0,1},{1,1},{1,0}};
-	static double p = 0.0;
-	static double mutualInfo = 0.0;
-	static double c_X = 0.0;
-	static double c_Y = 0.0;
-	static int[] jointCounts = {0,0,0,0};
-	
+	static final int[][] values = {{0,0},{0,1},{1,1},{1,0}};
+	static DirectedGraph<Integer, DefaultEdge> network ;
+	static List<Object> networkParameters ;
+	static double testLogLikelihood = 0.0;
+	static int numberOfTestSamples = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -36,44 +34,55 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 		posProb = new double[1];
 		numberOfTrainingSamples = 0;
 		count = new int[1];
+		testLogLikelihood = 0.0;
+		networkParameters = null;
+		network = null;
+		numberOfTestSamples = 0;
 		String trainingFile = args[0];
 		ChowLiuBayesianNetwork bn = new ChowLiuBayesianNetwork();
 		bn.processData(trainingFile, true);
-		DirectedGraph<Integer, DefaultEdge> network = learnBNStructure();
-		learnBNParameters(network);
-//		String testFile = args[1];
-//		bn.processData(testFile, false);
+		network = learnBNStructure();
+//		System.out.println(network.toString());
+		networkParameters = learnBNParameters(network);
+//		System.out.println(networkParameters);
+		String testFile = args[1];
+		bn.processData(testFile, false);
+		System.out.println(testFile+" : "+(testLogLikelihood/numberOfTestSamples));
 	}
 
-	private static void learnBNParameters(DirectedGraph<Integer, DefaultEdge> network) {
+	private static List<Object> learnBNParameters(DirectedGraph<Integer, DefaultEdge> network) {
 		Integer s, v =0;
 		Set<DefaultEdge> edges;
 		List<Object> parameters = new ArrayList<>();
 		for(v = 0; v < count.length; v++) {
 			// Any variable will have exactly one parent or zero
 			edges = network.incomingEdgesOf(v);
-			if(edges != null) {
-				System.out.println("v "+v);
+			if(!edges.isEmpty()) {
 				s = network.getEdgeSource(edges.iterator().next());
 				parameters.add(learnCPT(s,v));
 			}
 			else
 				parameters.add(learnCPT(v));
 		}
-		System.out.println(parameters);
+		return parameters;
 	}
 
 	private static Double learnCPT(Integer v) {
 		// TODO Auto-generated method stub
-		return (double) count[v]/numberOfTrainingSamples;
+		return (double) (count[v]+1)/(numberOfTrainingSamples+2);
 	}
 
 	private static Double[] learnCPT(Integer s, Integer v) {
 		// TODO Auto-generated method stub
 		int[] jointcount = getCounts(s,v);
 		Double[] prob = new Double[2];
-		prob[0] = (double)jointcount[1]/(jointcount[1]+ jointcount[0]);
-		prob[1] = (double) jointcount[2]/(jointcount[2]+ jointcount[3]);
+		prob[0] = (double)(jointcount[1]+1)/(jointcount[1]+ jointcount[0]+2);
+		prob[1] = (double) (jointcount[2]+1)/(jointcount[2]+ jointcount[3]+2);
+		if(prob[0] < 0.0 || prob[1] <0.0) {
+			System.out.println("Error prob is negative");
+			System.exit(0);
+		}
+			
 		return prob;
 	}
 
@@ -123,7 +132,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	}
 
 	private static double calculateMutualIndependence(int X, int Y) {
-		mutualInfo = 0.0;
+		double mutualInfo = 0.0, c_X, c_Y;
 		int[] jointCount = getCounts(X, Y);
 		for (int i = 0; i< values.length ; i++) {
 			 if(values[i][0]==1)
@@ -148,7 +157,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	
 	
 	private static int[] getCounts(int x, int y) {
-		jointCounts = new int[values.length];
+		int[] jointCounts = new int[values.length];
 		for(int[] sample : trainingData ) {
 			for(int i = 0; i < values.length; i++) {
 				if(sample[x]==values[i][0] && sample[y]==values[i][1])
@@ -161,7 +170,29 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	@Override
 	protected void test(String[] sample) {
 		// TODO Auto-generated method stub
+		Integer[] data = new Integer[sample.length];
+		for(int i = 0; i < sample.length; i++) { 
+			data[i] = Integer.parseInt(sample[i]);
+		}
+		double posProb, testLogLikelihood = 0.0;
+		Set<DefaultEdge> edges;
+		int s;
 		
+		for(int i = 0; i < sample.length; i++) {
+			edges = network.incomingEdgesOf(i);
+			if(!edges.isEmpty()) {
+				s = network.getEdgeSource(edges.iterator().next());
+				posProb = ((Double[]) networkParameters.get(i))[data[s]];
+			}
+			else
+				posProb = (Double) networkParameters.get(i);
+			if(data[i]==1)
+				testLogLikelihood += (Math.log(posProb)/Math.log(2));
+			else
+				testLogLikelihood += (Math.log(1-posProb)/Math.log(2));
+		}
+		numberOfTestSamples++;
+		System.out.println(numberOfTestSamples +"-->"+ testLogLikelihood);
 	}
 
 	@Override
