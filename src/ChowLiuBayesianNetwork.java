@@ -17,6 +17,7 @@ import org.jgrapht.traverse.GraphIterator;
 public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 
 	static List<int[]> trainingData;
+	static List<Double> dataWeights;
 	static Boolean firstSampleFlag = true;
 	static double[] posProb = new double[1];
 	static int numberOfTrainingSamples = 0;
@@ -68,16 +69,15 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	}
 
 	private static Double learnCPT(Integer v) {
-		// TODO Auto-generated method stub
-		return (double) (count[v]+1)/(numberOfTrainingSamples+2);
+		return (double) (count[v]+2)/(numberOfTrainingSamples+4);
 	}
 
 	private static Double[] learnCPT(Integer s, Integer v) {
 		// TODO Auto-generated method stub
-		int[] jointcount = getCounts(s,v);
+		double[] jointcount = getCounts(s,v);
 		Double[] prob = new Double[2];
-		prob[0] = (double)(jointcount[1]+1)/(jointcount[1]+ jointcount[0]+2);
-		prob[1] = (double) (jointcount[2]+1)/(jointcount[2]+ jointcount[3]+2);
+		prob[0] = jointcount[1]/(jointcount[1]+ jointcount[0]);
+		prob[1] = jointcount[2]/(jointcount[2]+ jointcount[3]);
 		if(prob[0] < 0.0 || prob[1] <0.0) {
 			System.out.println("Error prob is negative");
 			System.exit(0);
@@ -133,7 +133,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 
 	private static double calculateMutualIndependence(int X, int Y) {
 		double mutualInfo = 0.0, c_X, c_Y, N, mi;
-		int[] jointCount = getCounts(X, Y);
+		double[] jointCount = getCounts(X, Y);
 		for (int i = 0; i< values.length ; i++) {
 			 if(values[i][0]==1) // Add one in Mutual Info
 				 c_X = count[X] + 2;
@@ -146,7 +146,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 			 if (jointCount[i] ==0 )
 				 continue;
 			 N = (double) numberOfTrainingSamples +4;
-			 mi = jointCount[i]*Math.log((double) (jointCount[i] * N)/(c_X*c_Y))/N;
+			 mi = jointCount[i]*Math.log((jointCount[i] * N)/(c_X*c_Y))/N;
 			 mutualInfo += mi ;
 		}
 		if(mutualInfo < 0 || Double.isNaN(mutualInfo)) {
@@ -157,12 +157,13 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	}
 	
 	
-	private static int[] getCounts(int x, int y) {
-		int[] jointCounts = new int[]{1,1,1,1};// Add One in counts
-		for(int[] sample : trainingData ) {
+	private static double[] getCounts(int x, int y) {
+		double[] jointCounts = new double[]{1.0,1.0,1.0,1.0};// Add One in counts
+		for(int j= 0; j < trainingData.size(); j++ ) {
+			int[] sample = trainingData.get(j); 
 			for(int i = 0; i < values.length; i++) {
 				if(sample[x]==values[i][0] && sample[y]==values[i][1])
-					jointCounts[i]++;
+					jointCounts[i]+= dataWeights.get(j);
 			}
 		}
 		return jointCounts;
@@ -199,6 +200,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 	protected void train(String[] sample) {
 		if(firstSampleFlag) {
 			trainingData = new ArrayList<int[]>();
+			dataWeights = new ArrayList<Double>();
 			count = new int[sample.length];
 			firstSampleFlag = false;
 		}
@@ -208,6 +210,7 @@ public class ChowLiuBayesianNetwork extends ParameterLearningBN{
 			count[i] += s[i];
 		}
 		trainingData.add(s);
+		dataWeights.add(1.0);
 		numberOfTrainingSamples++;
 	}
 	
