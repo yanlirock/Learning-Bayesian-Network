@@ -1,4 +1,8 @@
-
+.gitignore
 datasets/
 /bin/
 /target/
+.classpath/
+.settings/
+
+\.classpath
