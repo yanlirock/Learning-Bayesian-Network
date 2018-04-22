@@ -6,7 +6,7 @@ import java.io.IOException;
 public abstract class ParameterLearningBN {
 
 
-	public void processData(String filename, Boolean trainingFlag) {
+	public void processData(String filename, boolean trainingFlag) {
 		// TODO Auto-generated method stub
 		BufferedReader br = null;
 		try {

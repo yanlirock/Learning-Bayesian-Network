@@ -6,7 +6,7 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 	int[] count = new int[1];
 	double testLogLikelihood = 0.0;
 	int numberOfTestSamples = 0;
-	Boolean firstSampleFlag = true;
+	boolean firstSampleFlag = true;
 
 	public void run(String[] args) {
 		// TODO Auto-generated method stub
@@ -16,7 +16,7 @@ public class IndependentBayesianNetwork extends ParameterLearningBN {
 		count = new int[1];
 		testLogLikelihood = 0.0;
 		numberOfTestSamples = 0;
-		Boolean firstSampleFlag = true;
+		firstSampleFlag = true;
 		String trainingFile = args[0];
 		processData(trainingFile, true);
 		learnParameters();
