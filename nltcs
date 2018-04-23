@@ -1,0 +1,38 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset nltcs.ts.data ...
+converged after 51 iterations
+K value: 2 | datasets/nltcs.valid.data : -8.915406665726357
+time: 3
+converged after 194 iterations
+K value: 3 | datasets/nltcs.valid.data : -8.8072370380327
+time: 17
+converged after 117 iterations
+K value: 4 | datasets/nltcs.valid.data : -8.700719317418475
+time: 14
+converged after 268 iterations
+K value: 5 | datasets/nltcs.valid.data : -8.658672922972618
+time: 39
+ Best BN is 5
+K value: 5 | nltcs.test.data : -8.723937405872583
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:13 min
+[INFO] Finished at: 2018-04-22T22:21:04-05:00
+[INFO] Final Memory: 8M/48M
+[INFO] ------------------------------------------------------------------------

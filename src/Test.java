@@ -9,8 +9,8 @@ public class Test {
 //			{"jester.test.data", "jester.ts.data","jester.valid.data"},  
 //			{"kdd.test.data", "kdd.ts.data","kdd.valid.data"},  
 //			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data"},  
-			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data"}, 
-//			{"plants.test.data", "plants.ts.data", "plants.valid.data"},  
+//			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data"}, 
+			{"plants.test.data", "plants.ts.data", "plants.valid.data"},  
 			//			{"r52.test.data", "r52.ts.data", "r52.valid.data"}
 	};
 
@@ -27,7 +27,7 @@ public class Test {
 			
 			for(int k : kValues) {
 				long startTime = System.currentTimeMillis();
-				bn = new MixtureTreeBayesianNetwork(k,500);
+				bn = new MixtureTreeBayesianNetwork(k,100);
 				bn.run(validationArgs);
 				
 				if(bn.testLogLikelihood > bestLogLikelihood) {
