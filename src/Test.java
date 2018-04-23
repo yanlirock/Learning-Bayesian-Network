@@ -19,8 +19,13 @@ public class Test {
 		for(String[] dataset : datasets) {
 			long startTime = System.currentTimeMillis();
 			arguments = new String[] {"datasets/"+dataset[1], "datasets/"+dataset[0]};
-			TreeBayesianNetwork bn = new TreeBayesianNetwork();
-			bn.run(arguments);
+			System.out.println("Running dataset "+ dataset[1]+ " ...");
+//			TreeBayesianNetwork bn = new TreeBayesianNetwork();
+//			bn.run(arguments);
+//			System.out.println(bn.network.toString());
+//			System.out.println(bn.networkParameters);
+			MixtureTreeBayesianNetwork bn2 = new MixtureTreeBayesianNetwork(2,100000);
+			bn2.run(arguments);
 			long endTime   = System.currentTimeMillis();
 			System.out.println("time: "+ (endTime - startTime)/1000);
 		}

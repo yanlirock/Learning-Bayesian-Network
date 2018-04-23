@@ -22,8 +22,8 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 	int numberOfTrainingSamples = 0;
 	int[] count = new int[1];
 	final int[][] values = {{0,0},{0,1},{1,1},{1,0}};
-	DirectedGraph<Integer, DefaultEdge> network ;
-	List<Object> networkParameters ;
+	public DirectedGraph<Integer, DefaultEdge> network ;
+	public List<Object> networkParameters ;
 	double testLogLikelihood = 0.0;
 	int numberOfTestSamples = 0;
 	
@@ -32,9 +32,20 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		super();
 	}
 	
-	public TreeBayesianNetwork(List<int[]> trainingData,List<Double> dataWeights,int[] count) {
+	
+	@Override
+	public String toString() {
+		return "TreeBayesianNetwork [network=" + network.toString() + "]";
+	}
+
+
+	public TreeBayesianNetwork(List<int[]> trainingData,List<Double> dataWeights,int[] count, int numberOfTrainingSamples) {
 		// TODO Auto-generated constructor stub
 		super();
+		this.trainingData = trainingData;
+		this.count = count;
+		this.dataWeights = dataWeights;
+		this.numberOfTrainingSamples = numberOfTrainingSamples;
 	}
 
 	public void run(String[] args) {
@@ -49,11 +60,15 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		this.numberOfTestSamples = 0;
 		String trainingFile = args[0];
 		processData(trainingFile, true);
-		this.network = learnBNStructure();
-		this.networkParameters = learnBNParameters();
+		learnBN();
 		String testFile = args[1];
 		processData(testFile, false);
 		System.out.println(testFile+" : "+(this.testLogLikelihood/this.numberOfTestSamples));
+	}
+
+	public void learnBN() {
+		this.network = learnBNStructure();
+		this.networkParameters = learnBNParameters();
 	}
 
 	private  List<Object> learnBNParameters() {
@@ -141,13 +156,13 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		double[] jointCount = getCounts(X, Y);
 		for (int i = 0; i< values.length ; i++) {
 			if(values[i][0]==1) // Add one in Mutual Info
-				c_X = this.count[X] + 2;
+				c_X = jointCount[2]+jointCount[3];
 			else
-				c_X = this.numberOfTrainingSamples - this.count[X] + 2;
+				c_X = jointCount[0]+jointCount[1];
 			if(values[i][1]==1)
-				c_Y = this.count[Y] + 2;
+				c_Y = jointCount[1]+jointCount[2];
 			else
-				c_Y = this.numberOfTrainingSamples - this.count[Y] + 2;
+				c_Y = jointCount[0]+jointCount[3];;
 			if (jointCount[i] ==0 )
 				continue;
 			N = (double) this.numberOfTrainingSamples +4;
@@ -160,6 +175,7 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		}
 		return mutualInfo;
 	}
+
 
 
 	private  double[] getCounts(int x, int y) {
@@ -177,7 +193,7 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 	@Override
 	public void test(String[] sample) {
 		// TODO Auto-generated method stub
-		Integer[] data = new Integer[sample.length];
+		int[] data = new int[sample.length];
 		for(int i = 0; i < sample.length; i++) { 
 			data[i] = Integer.parseInt(sample[i]);
 		}
@@ -186,19 +202,27 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		int s;
 
 		for(int i = 0; i < sample.length; i++) {
-			edges = this.network.incomingEdgesOf(i);
-			if(!edges.isEmpty()) {
-				s = this.network.getEdgeSource(edges.iterator().next());
-				posProb = ((Double[]) this.networkParameters.get(i))[data[s]];
-			}
-			else
-				posProb = (Double) this.networkParameters.get(i);
+			posProb = getPositiveProbOfVariable(data, i);
 			if(data[i]==1)
 				this.testLogLikelihood += (Math.log(posProb)/Math.log(2));
 			else
 				this.testLogLikelihood += (Math.log(1-posProb)/Math.log(2));
 		}
 		this.numberOfTestSamples++;
+	}
+
+	public double getPositiveProbOfVariable(int[] data, int variable) {
+		double posProb;
+		Set<DefaultEdge> edges;
+		int s;
+		edges = this.network.incomingEdgesOf(variable);
+		if(!edges.isEmpty()) {
+			s = this.network.getEdgeSource(edges.iterator().next());
+			posProb = ((Double[]) this.networkParameters.get(variable))[data[s]];
+		}
+		else
+			posProb = (Double) this.networkParameters.get(variable);
+		return posProb;
 	}
 
 	@Override
