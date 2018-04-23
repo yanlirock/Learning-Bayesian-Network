@@ -16,26 +16,33 @@ public class Test {
 
 	public static void main(String[] args) {
 		String[] testArgs, validationArgs;
-		int[] kValues = {2,3,4,5};
+		int[] kValues = {2, 3, 4, 5};
 		MixtureTreeBayesianNetwork bn;
 		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		MixtureTreeBayesianNetwork bestKBN = null;
 		for(String[] dataset : datasets) {
-			long startTime = System.currentTimeMillis();
+			
 			validationArgs = new String[] {"datasets/"+dataset[1], "datasets/"+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
+			
 			for(int k : kValues) {
+				long startTime = System.currentTimeMillis();
 				bn = new MixtureTreeBayesianNetwork(k,500);
 				bn.run(validationArgs);
+				
 				if(bn.testLogLikelihood > bestLogLikelihood) {
 					bestLogLikelihood = bn.testLogLikelihood;
 					bestKBN = bn;
 				}
+				long endTime = System.currentTimeMillis();
+				System.out.println("time: "+ (endTime - startTime)/1000);
 			}
+			long startTime = System.currentTimeMillis();
 			System.out.println(" Best BN is "+ bestKBN.sizeOfLatentVariable);
 			bestKBN.testLogLikelihood = 0.0;
 			bestKBN.numberOfTestSamples	= 0;
 			bestKBN.processData("datasets/"+dataset[0], false);
+			System.out.println("K value: "+ bestKBN.sizeOfLatentVariable +" | "+dataset[0]+" : "+(bestKBN.testLogLikelihood/bestKBN.numberOfTestSamples));
 			long endTime   = System.currentTimeMillis();
 			System.out.println("time: "+ (endTime - startTime)/1000);
 		}

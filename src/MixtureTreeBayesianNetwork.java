@@ -66,6 +66,7 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 			converged = true; l++;
 //			System.out.println(" Starting iteration: "+ l);
 			double[][] tempDataWeights = new double[this.sizeOfLatentVariable][this.trainingData.size()];
+			double[] tempLatentParameters = new double[this.sizeOfLatentVariable];
 			for(int k = 0; k < this.sizeOfLatentVariable; k++) {
 				treeBN[k] = new TreeBayesianNetwork(this.trainingData, this.dataWeights[k], this.count, this.numberOfTrainingSamples);
 				treeBN[k].learnBN();
@@ -83,7 +84,7 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 				}
 			}
 			// Normalizing the weights and updating latent paramters
-			this.latentParameters = new double[this.sizeOfLatentVariable];
+//			this.latentParameters = new double[this.sizeOfLatentVariable];
 			for(int i = 0; i < this.trainingData.size(); i++) {
 				sum = 0.0;
 				for(int k = 0; k < this.sizeOfLatentVariable; k++) {
@@ -91,19 +92,20 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 				}
 				for(int k = 0; k < this.sizeOfLatentVariable; k++) {
 					double temp = (tempDataWeights[k][i]/sum);
-					if(converged && Math.abs(this.dataWeights[k].get(i) - temp) > epsilon) {
-						converged = false;
-					}
 					this.dataWeights[k].set(i, temp);
-					this.latentParameters[k] += temp;
+					tempLatentParameters[k] += temp;
 				}
 			}
 			sum = 0.0;
 			for(int k = 0; k < this.sizeOfLatentVariable; k++) {
-				sum += this.latentParameters[k] ;
+				sum += tempLatentParameters[k] ;
 			}
 			for(int k = 0; k < this.sizeOfLatentVariable; k++) {
-				this.latentParameters[k] = this.latentParameters[k]/sum ;
+				double temp = tempLatentParameters[k]/sum;
+				if(converged && Math.abs(this.latentParameters[k] - temp) > epsilon) {
+					converged = false;
+				}
+				this.latentParameters[k] = temp ;
 			}
 		}
 		System.out.println("converged after "+l+" iterations");
