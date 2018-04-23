@@ -23,6 +23,13 @@
 					<release>10</release>
 				</configuration>
 			</plugin>
+			<plugin>
+	        		<groupId>org.codehaus.mojo</groupId>
+	        		<artifactId>exec-maven-plugin</artifactId>
+	        		<configuration>
+	             			<mainClass>Test</mainClass>
+	        		</configuration>
+	        	</plugin>
 		</plugins>
 	</build>
 	<dependencies>

@@ -16,9 +16,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		String[] testArgs, validationArgs;
-		int[] kValues = {2,3,4,5, 6, 7,8,9,10};
+		int[] kValues = {2,3,4,5};
 		MixtureTreeBayesianNetwork bn;
-		double bestLogLikelihood = Double.MIN_VALUE;
+		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		MixtureTreeBayesianNetwork bestKBN = null;
 		for(String[] dataset : datasets) {
 			long startTime = System.currentTimeMillis();
