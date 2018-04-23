@@ -15,25 +15,19 @@ Q1:
 
 
 Running dataset nltcs.ts.data ...
-converged after 57 iterations
-K value: 2 | datasets/nltcs.test.data : -9.03202820552881
-time: 8
+converged after 49 iterations
+K value: 2 | datasets/nltcs.valid.data : -8.878311986079945
+time: 6
+converged after 157 iterations
+K value: 3 | datasets/nltcs.valid.data : -8.792485440285919
+time: 31
+converged after 298 iterations
+K value: 4 | datasets/nltcs.valid.data : -8.71227394384048
+time: 75
+converged after 211 iterations
+K value: 5 | datasets/nltcs.valid.data : -8.707348749341074
+time: 66
+ Best BN is 5
+K value: 5 | nltcs.test.data : -8.761651392422563
+time: 0
 
-
-Running dataset nltcs.ts.data ...
-converged after 66 iterations
-K value: 2 | datasets/nltcs.test.data : -8.998191349081013
-time: 9
-
-
-Running dataset nltcs.ts.data ...
-converged after 69 iterations
-K value: 2 | datasets/nltcs.valid.data : -8.917990279658584
-converged after 169 iterations
-K value: 3 | datasets/nltcs.valid.data : -8.806654902869898
-converged after 168 iterations
-K value: 4 | datasets/nltcs.valid.data : -8.700677458016404
-converged after 250 iterations
-K value: 5 | datasets/nltcs.valid.data : -8.689807259725
-converged after 375 iterations
-K value: 6 | datasets/nltcs.valid.data : -8.658314808772563
