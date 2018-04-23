@@ -7,7 +7,7 @@ import org.jgrapht.graph.DefaultEdge;
 
 public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 
-	private static final double epsilon = 0.00001;
+	private static final double epsilon = 0.001;
 	int sizeOfLatentVariable;
 	double[] latentParameters;
 	int maxIterations;
