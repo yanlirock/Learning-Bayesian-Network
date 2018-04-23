@@ -9,33 +9,40 @@ public class Test {
 //			{"jester.test.data", "jester.ts.data","jester.valid.data"},  
 //			{"kdd.test.data", "kdd.ts.data","kdd.valid.data"},  
 //			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data"},  
-//			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data"}, 
-			{"plants.test.data", "plants.ts.data", "plants.valid.data"},  
+			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data"}, 
+//			{"plants.test.data", "plants.ts.data", "plants.valid.data"},  
 			//			{"r52.test.data", "r52.ts.data", "r52.valid.data"}
 	};
 
 	public static void main(String[] args) {
 		String[] testArgs, validationArgs;
-		int[] kValues = {2, 3, 4, 5};
-		MixtureTreeBayesianNetwork bn;
+		int[] kValues = {2,5,10,15,20,25,30};
 		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
-		MixtureTreeBayesianNetwork bestKBN = null;
 		for(String[] dataset : datasets) {
-			
+			MixtureTreeBayesianNetwork bn = null;
+			MixtureTreeBayesianNetwork bestKBN = null;			
 			validationArgs = new String[] {"datasets/"+dataset[1], "datasets/"+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
-			
+			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
 			for(int k : kValues) {
-				long startTime = System.currentTimeMillis();
-				bn = new MixtureTreeBayesianNetwork(k,100);
-				bn.run(validationArgs);
-				
-				if(bn.testLogLikelihood > bestLogLikelihood) {
-					bestLogLikelihood = bn.testLogLikelihood;
+				double avgLogLikelihood = 0.0;
+				for(int j=0; j<5;j++) {
+					long startTime = System.currentTimeMillis();
+					bn = new MixtureTreeBayesianNetwork(k,100);
+					bn.run(validationArgs);					
+					avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
+					long endTime = System.currentTimeMillis();
+					System.out.println("time: "+ (endTime - startTime)/1000);
+				}
+				System.out.println(" Average logLikelihood for K="+ k+ " is "+ (avgLogLikelihood/5.0));
+				if(avgLogLikelihood/5.0 > bestLogLikelihood) {
+					bestLogLikelihood = avgLogLikelihood/5.0;
 					bestKBN = bn;
 				}
-				long endTime = System.currentTimeMillis();
-				System.out.println("time: "+ (endTime - startTime)/1000);
+				if(prevLogLikelihood > avgLogLikelihood/5.0) {
+					System.out.println("Threshold found at: "+ k);
+					break;
+				}
 			}
 			long startTime = System.currentTimeMillis();
 			System.out.println(" Best BN is "+ bestKBN.sizeOfLatentVariable);

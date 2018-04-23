@@ -36,3 +36,41 @@ time: 0
 [INFO] Finished at: 2018-04-22T22:21:04-05:00
 [INFO] Final Memory: 8M/48M
 [INFO] ------------------------------------------------------------------------
+
+
+
+Running dataset nltcs.ts.data ...
+converged after 46 iterations
+K value: 2 | datasets/nltcs.valid.data : -8.88421400416254
+time: 6
+converged after 100 iterations
+K value: 5 | datasets/nltcs.valid.data : -8.668089472505253
+time: 33
+converged after 100 iterations
+K value: 10 | datasets/nltcs.valid.data : -8.63359031954762
+time: 86
+converged after 100 iterations
+K value: 15 | datasets/nltcs.valid.data : -8.58555385684644
+time: 129
+ Best BN is 15
+K value: 15 | nltcs.test.data : -8.671589663310957
+time: 0
+
+Running dataset nltcs.ts.data ...
+converged after 100 iterations
+K value: 20 | datasets/nltcs.valid.data : -8.59811440340751
+time: 191
+converged after 100 iterations
+K value: 25 | datasets/nltcs.valid.data : -8.601344610728493
+time: 238
+converged after 100 iterations
+K value: 50 | datasets/nltcs.valid.data : -8.585167811826627
+time: 537
+converged after 100 iterations
+K value: 15 | datasets/nltcs.valid.data : -8.59816875101134
+time: 143
+ Best BN is 50
+K value: 50 | nltcs.test.data : -8.671655073725974
+time: 0
+
+
