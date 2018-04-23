@@ -82,7 +82,6 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 					tempDataWeights[k][i] = prob;
 				}
 			}
-//			System.out.println(Arrays.toString(treeBN));
 			// Normalizing the weights and updating latent paramters
 			this.latentParameters = new double[this.sizeOfLatentVariable];
 			for(int i = 0; i < this.trainingData.size(); i++) {
@@ -94,7 +93,6 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 					double temp = (tempDataWeights[k][i]/sum);
 					if(converged && Math.abs(this.dataWeights[k].get(i) - temp) > epsilon) {
 						converged = false;
-//						System.out.println(i+" : "+(this.dataWeights[k].get(i) - temp) );
 					}
 					this.dataWeights[k].set(i, temp);
 					this.latentParameters[k] += temp;
