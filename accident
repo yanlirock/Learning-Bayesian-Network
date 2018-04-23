@@ -1,0 +1,71 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset accidents.ts.data ...
+converged after 36 iterations
+K value: 2 | datasets/accidents.valid.data : -45.62564101101867
+time: 67
+converged after 31 iterations
+K value: 3 | datasets/accidents.valid.data : -44.54106565825363
+time: 91
+converged after 54 iterations
+K value: 4 | datasets/accidents.valid.data : -44.34778007980869
+time: 216
+converged after 62 iterations
+K value: 5 | datasets/accidents.valid.data : -43.833517435785936
+time: 313
+ Best BN is 5
+K value: 5 | accidents.test.data : -44.153737749937775
+time: 0
+Running dataset baudio.ts.data ...
+converged after 22 iterations
+K value: 2 | datasets/baudio.valid.data : -60.339541252141295
+time: 44
+converged after 45 iterations
+K value: 3 | datasets/baudio.valid.data : -59.49252844861276
+time: 136
+converged after 78 iterations
+K value: 4 | datasets/baudio.valid.data : -58.86986135279152
+time: 325
+converged after 100 iterations
+K value: 5 | datasets/baudio.valid.data : -58.500396968195005
+time: 522
+ Best BN is 5
+[WARNING] 
+java.lang.ArrayIndexOutOfBoundsException: 108
+	at TreeBayesianNetwork.getPositiveProbOfVariable(TreeBayesianNetwork.java:221)
+	at MixtureTreeBayesianNetwork.test(MixtureTreeBayesianNetwork.java:125)
+	at ParameterLearningBN.processData(ParameterLearningBN.java:25)
+	at Test.main(Test.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:282)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 28:36 min
+[INFO] Finished at: 2018-04-22T23:03:48-05:00
+[INFO] Final Memory: 8M/48M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.6.0:java (default-cli) on project Learning-Bayesian-Network: An exception occured while executing the Java class. 108 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

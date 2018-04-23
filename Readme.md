@@ -13,6 +13,25 @@ Q1:
 | plants | -45.10761938833193 | -23.83911455992376 | 
 | r52 | -162.48463620264258 | -208891.4486 |
 
+datasets/accidents.test.data : -47.88032233362266
+time: 2
+datasets/baudio.test.data : -64.0194513687973
+time: 2
+datasets/bnetflix.test.data : -86.9228753148335
+time: 2
+datasets/dna.test.data : -127.13726498872491
+time: 0
+datasets/jester.test.data : -84.0031288755291
+time: 0
+datasets/kdd.test.data : -3.3108322962513896
+time: 10
+datasets/msnbc.test.data : -9.435409301915746
+time: 0
+datasets/nltcs.test.data : -9.75124021936291
+time: 0
+datasets/plants.test.data : -23.83911455992376
+time: 0
+
 
 Running dataset nltcs.ts.data ...
 converged after 49 iterations
