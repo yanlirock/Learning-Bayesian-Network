@@ -199,3 +199,43 @@ time: 521
 converged after 28 iterations
 K value: 45 | datasets/plants.valid.data : -18.57256735616503
 time: 688
+converged after 21 iterations
+K value: 45 | datasets/plants.valid.data : -18.527385702114096
+time: 575
+converged after 35 iterations
+K value: 45 | datasets/plants.valid.data : -18.51044786959922
+time: 1715
+converged after 20 iterations
+K value: 45 | datasets/plants.valid.data : -18.587813704841132
+time: 1065
+converged after 25 iterations
+K value: 45 | datasets/plants.valid.data : -18.5251438847804
+time: 1468
+ Average logLikelihood for K=45 is -18.544671703499976
+converged after 22 iterations
+K value: 50 | datasets/plants.valid.data : -18.59008759501264
+time: 1383
+converged after 18 iterations
+K value: 50 | datasets/plants.valid.data : -18.596854313399906
+time: 901
+converged after 27 iterations
+K value: 50 | datasets/plants.valid.data : -18.467275145706587
+time: 1443
+converged after 21 iterations
+K value: 50 | datasets/plants.valid.data : -18.51790127823014
+time: 1026
+converged after 28 iterations
+K value: 50 | datasets/plants.valid.data : -18.579517996464944
+time: 1428
+ Average logLikelihood for K=50 is -18.550327265762842
+Threshold found at: 50
+ Best BN is 45
+K value: 45 | plants.test.data : -18.488764423760056
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:03 h
+[INFO] Finished at: 2018-04-24T03:40:01-05:00
+[INFO] Final Memory: 7M/48M
+[INFO] ------------------------------------------------------------------------

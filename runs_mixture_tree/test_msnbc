@@ -1,0 +1,34 @@
+Running dataset msnbc.ts.data ...
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.431556286059447
+time: 23
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.432613852737504
+time: 20
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.431957219245842
+time: 21
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.431412515801584
+time: 20
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.431383847636285
+time: 19
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.432129003218215
+time: 20
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.431176055894236
+time: 21
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.431174170953666
+time: 20
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.43251760809799
+time: 20
+converged after 1 iterations
+K value: 15 | datasets/msnbc.test.data : -9.43137522409353
+time: 19
+ Average logLikelihood for K=15 is -9.43172957837383
+ Best BN is 15
+time: 0
