@@ -19,3 +19,9 @@ WARNING: All illegal access operations will be denied in a future release
 [INFO] 
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
 Running dataset kdd.ts.data ...
+converged after 8 iterations
+K value: 5 | datasets/kdd.test.data : -3.1105219510933004
+time: 345
+converged after 1 iterations
+K value: 5 | datasets/kdd.test.data : -3.282367432409635
+time: 42
