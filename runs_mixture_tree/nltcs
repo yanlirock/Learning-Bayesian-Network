@@ -1,17 +1,17 @@
 [INFO] Scanning for projects...
-[WARNING] 
+[WARNING]
 [WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
 [WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
-[WARNING] 
+[WARNING]
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
+[WARNING]
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO]                                                                         
+[WARNING]
+[INFO]
 [INFO] ------------------------------------------------------------------------
 [INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
-[INFO] 
+[INFO]
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
 Running dataset nltcs.ts.data ...
 converged after 51 iterations
@@ -195,3 +195,68 @@ time: 248
  Best BN is 30
 K value: 30 | nltcs.test.data : -8.67024662018699
 time: 0
+
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset nltcs.ts.data ...
+converged after 77 iterations
+K value: 35 | datasets/nltcs.valid.data : -8.584403944108931
+time: 105
+converged after 68 iterations
+K value: 35 | datasets/nltcs.valid.data : -8.586579210146459
+time: 100
+converged after 100 iterations
+K value: 35 | datasets/nltcs.valid.data : -8.594641558721484
+time: 139
+converged after 78 iterations
+K value: 35 | datasets/nltcs.valid.data : -8.593128536953843
+time: 113
+converged after 64 iterations
+K value: 35 | datasets/nltcs.valid.data : -8.592519167980452
+time: 96
+ Average logLikelihood for K=35 is -8.590254483582234
+converged after 100 iterations
+K value: 40 | datasets/nltcs.valid.data : -8.596008115667786
+time: 156
+converged after 46 iterations
+K value: 40 | datasets/nltcs.valid.data : -8.596056653335033
+time: 82
+converged after 53 iterations
+K value: 40 | datasets/nltcs.valid.data : -8.60046778362697
+time: 85
+converged after 63 iterations
+K value: 40 | datasets/nltcs.valid.data : -8.59098464277988
+time: 98
+converged after 76 iterations
+K value: 40 | datasets/nltcs.valid.data : -8.594774070981293
+time: 112
+ Average logLikelihood for K=40 is -8.595658253278192
+Threshold found at: 40
+ Best BN is 35
+K value: 35 | nltcs.test.data : -8.672055768287391
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 18:11 min
+[INFO] Finished at: 2018-04-23T22:31:29-05:00
+[INFO] Final Memory: 8M/48M
+[INFO] ------------------------------------------------------------------------
