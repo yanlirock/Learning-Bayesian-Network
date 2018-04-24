@@ -1,61 +1,192 @@
 
 public class Test {
 
+	private static final String pathPrefix = "datasets/";
+	private static final int limitOfConvergence = 100;
 	static String[][] datasets = {
-			{"accidents.test.data","accidents.ts.data", "accidents.valid.data"}, 
-			{"baudio.test.data", "baudio.ts.data", "baudio.valid.data"}, 
-//			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data"}, 
-//			{"dna.test.data","dna.ts.data","dna.valid.data"},  
-			{"jester.test.data", "jester.ts.data","jester.valid.data"},  
-//			{"kdd.test.data", "kdd.ts.data","kdd.valid.data"},  
-//			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data"},  
-			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data"}, 
-//			{"plants.test.data", "plants.ts.data", "plants.valid.data"},  
-			//			{"r52.test.data", "r52.ts.data", "r52.valid.data"}
+			{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20"}, 
+//			{"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "20"}, 
+//			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","35"}, 
+//			{"dna.test.data","dna.ts.data","dna.valid.data","10"},  
+//			{"jester.test.data", "jester.ts.data","jester.valid.data","20"},  
+//			{"kdd.test.data", "kdd.ts.data","kdd.valid.data","5"},  
+//			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","2"},  
+//			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "30"}, 
+//			{"plants.test.data", "plants.ts.data", "plants.valid.data","45"},
 	};
 
 	public static void main(String[] args) {
-		String[] testArgs, validationArgs;
-		int[] kValues = {20};
-		int numberOfIterations = 10;
+		int[] kValues = {110, 120, 150, 200};
+		int numberOfIterations = 5;
+//		findKofMixtureBN(kValues,numberOfIterations, false);
+		findKofBaggingBN(kValues, numberOfIterations, false);
+//		testIndependentBN();
+//		testTreeBN();
+//		testBaggingBN(numberOfIterations);
+//		testMixtureBN(numberOfIterations);
+	}
+
+	private static void testMixtureBN(int numberOfIterations) {
+		String[] arguments;
+		for(String[] dataset : datasets) {
+			System.out.println("Running dataset "+ dataset[1]+ " ...");
+			arguments = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
+			testMixtureBN(Integer.parseInt(dataset[3]), numberOfIterations, arguments);
+		}
+	}
+
+	private static void testBaggingBN(int numberOfIterations) {
+		String[] arguments;
+		for(String[] dataset : datasets) {
+			System.out.println("Running dataset "+ dataset[1]+ " ...");
+			arguments = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
+			testBaggingBN(Integer.parseInt(dataset[3]), numberOfIterations, arguments);
+		}
+	}
+
+	private static void testTreeBN() {
+		   String[] arguments;
+		   TreeBayesianNetwork bn;
+		   for(String[] dataset : datasets) {
+			   System.out.println("Running dataset "+ dataset[1]+ " ...");
+			   long startTime = System.currentTimeMillis();
+			   arguments = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
+			   bn = new TreeBayesianNetwork();
+			   bn.run(arguments);
+			   long endTime   = System.currentTimeMillis();
+			   System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
+		   }
+		   
+	}
+
+	private static void testIndependentBN() {
+		   String[] arguments;
+		   IndependentBayesianNetwork bn;
+		   for(String[] dataset : datasets) {
+			   System.out.println("Running dataset "+ dataset[1]+ " ...");
+			   long startTime = System.currentTimeMillis();
+			   arguments = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
+			   bn = new IndependentBayesianNetwork();
+			   bn.run(arguments);
+			   long endTime   = System.currentTimeMillis();
+			   System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
+		   }
+	}
+
+	private static void findKofMixtureBN(int[] kValues, int numberOfIterations, boolean test) {
+		String[] validationArgs;
 		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		for(String[] dataset : datasets) {
 			MixtureTreeBayesianNetwork bn = null;
 			MixtureTreeBayesianNetwork bestKBN = null;			
-			validationArgs = new String[] {"datasets/"+dataset[1], "datasets/"+dataset[0]};
+			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
 			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
 			for(int k : kValues) {
 				double avgLogLikelihood = 0.0;
 				for(int j=0; j<numberOfIterations;j++) {
 					long startTime = System.currentTimeMillis();
-					bn = new MixtureTreeBayesianNetwork(k, 100);
+					bn = new MixtureTreeBayesianNetwork(k,limitOfConvergence);
 					bn.run(validationArgs);					
 					avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
 					long endTime = System.currentTimeMillis();
-					System.out.println("time: "+ (endTime - startTime)/1000);
+					System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
 				}
 				avgLogLikelihood = avgLogLikelihood/numberOfIterations;
-				System.out.println(" Average logLikelihood for K="+ k+ " is "+ avgLogLikelihood);
+				System.out.println("Average logLikelihood for K="+ k+ " is "+ avgLogLikelihood);
 				if(avgLogLikelihood > bestLogLikelihood) {
 					bestLogLikelihood = avgLogLikelihood;
 					bestKBN = bn;
 				}
-//				if(prevLogLikelihood > (avgLogLikelihood) ) {
-//					System.out.println("Threshold found at: "+ k);
-//					break;
-//				}
+				if(prevLogLikelihood > (avgLogLikelihood) ) {
+					System.out.println("Threshold found at: "+ k);
+					break;
+				}
 				prevLogLikelihood = avgLogLikelihood;
 			}
-			long startTime = System.currentTimeMillis();
-//			System.out.println(" Best BN is "+ bestKBN.sizeOfLatentVariable);
-//			bestKBN.testLogLikelihood = 0.0;
-//			bestKBN.numberOfTestSamples	= 0;
-//			bestKBN.processData("datasets/"+dataset[0], false);
-//			System.out.println("K value: "+ bestKBN.sizeOfLatentVariable +" | "+dataset[0]+" : "+(bestKBN.testLogLikelihood/bestKBN.numberOfTestSamples));
-			long endTime   = System.currentTimeMillis();
-			System.out.println("time: "+ (endTime - startTime)/1000);
+			System.out.println("Best K Value is "+ bestKBN.sizeOfLatentVariable);
+			if(test) {
+				String[] testArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
+				testMixtureBN(bestKBN.sizeOfLatentVariable, 10, testArgs);
+			}
 		}
+	}
+	
+	private static void testMixtureBN(int sizeOfLatentVariable, int numberOfIterations, String[] testArgs) {
+		// TODO Auto-generated method stub
+		MixtureTreeBayesianNetwork bn = null;
+		double avgLogLikelihood = 0.0;
+		for(int j=0; j<numberOfIterations;j++) {
+			long startTime = System.currentTimeMillis();
+			bn = new MixtureTreeBayesianNetwork(sizeOfLatentVariable,limitOfConvergence);
+			bn.run(testArgs);					
+			avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
+			long endTime = System.currentTimeMillis();
+			System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
+		}
+		avgLogLikelihood = avgLogLikelihood/numberOfIterations;
+		System.out.println("Average logLikelihood for K="+ sizeOfLatentVariable+ " is "+ avgLogLikelihood);
+	}
+
+	private static void findKofBaggingBN(int[] kValues, int numberOfIterations, boolean test) {
+		String[] validationArgs;
+		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
+		for(String[] dataset : datasets) {
+			BaggingMixtureTreeBayesianNetwork bn = null;
+			BaggingMixtureTreeBayesianNetwork bestKBN = null;			
+			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
+			System.out.println("Running dataset "+ dataset[1]+ " ...");
+			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
+			for(int k : kValues) {
+				double avgLogLikelihood = 0.0;
+				double baselineAvgLogLikelihood = 0.0;
+				for(int j=0; j<numberOfIterations;j++) {
+					long startTime = System.currentTimeMillis();
+					bn = new BaggingMixtureTreeBayesianNetwork(k);
+					bn.run(validationArgs);					
+					avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
+					baselineAvgLogLikelihood += (bn.baselineTestLogLikelihood/bn.numberOfTestSamples);
+					long endTime = System.currentTimeMillis();
+					System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
+				}
+				avgLogLikelihood = avgLogLikelihood/numberOfIterations;
+				System.out.println("Average Baseline logLikelihood for K="+ k+ " is "+ baselineAvgLogLikelihood/numberOfIterations);
+				System.out.println("Average logLikelihood for K="+ k+ " is "+ avgLogLikelihood);
+				if(avgLogLikelihood > bestLogLikelihood) {
+					bestLogLikelihood = avgLogLikelihood;
+					bestKBN = bn;
+				}
+				if(prevLogLikelihood > (avgLogLikelihood) ) {
+					System.out.println("Threshold found at "+ k+ ", breaking the loop");
+					break;
+				}
+				prevLogLikelihood = avgLogLikelihood;
+			}
+			System.out.println("Best K Value is "+ bestKBN.sizeOfLatentVariable);
+			if(test) {
+				String[] testArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
+				testBaggingBN(bestKBN.sizeOfLatentVariable, 10, testArgs);
+			}
+		}
+	}
+
+	private static void testBaggingBN(int sizeOfLatentVariable, int numberOfIterations, String[] testArgs) {
+		// TODO Auto-generated method stub
+		BaggingMixtureTreeBayesianNetwork bn = null;
+		double avgLogLikelihood = 0.0;
+		double baselineAvgLogLikelihood = 0.0;
+		for(int j=0; j<numberOfIterations;j++) {
+			long startTime = System.currentTimeMillis();
+			bn = new BaggingMixtureTreeBayesianNetwork(sizeOfLatentVariable);
+			bn.run(testArgs);					
+			avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
+			baselineAvgLogLikelihood += (bn.baselineTestLogLikelihood/bn.numberOfTestSamples);
+			long endTime = System.currentTimeMillis();
+			System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
+		}
+		avgLogLikelihood = avgLogLikelihood/numberOfIterations;
+		System.out.println("Average logLikelihood for K="+ sizeOfLatentVariable+ " is "+ avgLogLikelihood);
+		System.out.println("Average Baseline logLikelihood for K="+ sizeOfLatentVariable+ " is "+ baselineAvgLogLikelihood/numberOfIterations);
 	}
 
 }

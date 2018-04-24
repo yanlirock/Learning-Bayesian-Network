@@ -33,6 +33,7 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 	}
 
 	public void run(String[] args) {
+		System.out.println(this.sizeOfLatentVariable +" Mixture Tree Bayesian Network");
 		trainingData = null;
 		this.firstSampleFlag = true;
 		this.numberOfTrainingSamples = 0;
@@ -46,7 +47,7 @@ public class MixtureTreeBayesianNetwork extends ParameterLearningBN {
 		runEM();
 		String testFile = args[1];
 		processData(testFile, false);
-		System.out.println("K value: "+ this.sizeOfLatentVariable +" | "+testFile+" : "+(this.testLogLikelihood/this.numberOfTestSamples));
+		System.out.println("K value: "+ this.sizeOfLatentVariable +" | loglikelihood of "+testFile+" is "+(this.testLogLikelihood/this.numberOfTestSamples));
 	}
 
 	private void runEM() {

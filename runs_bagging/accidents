@@ -1,0 +1,234 @@
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset accidents.ts.data ...
+K value: 2 | datasets/accidents.valid.data :  Baseline: -47.427919889558126
+K value: 2 | datasets/accidents.valid.data : -47.42791974895201
+time: 4
+K value: 2 | datasets/accidents.valid.data :  Baseline: -47.44750186135482
+K value: 2 | datasets/accidents.valid.data : -47.447501925089334
+time: 3
+K value: 2 | datasets/accidents.valid.data :  Baseline: -47.42349950768289
+K value: 2 | datasets/accidents.valid.data : -47.42349937555808
+time: 3
+K value: 2 | datasets/accidents.valid.data :  Baseline: -47.4332893071869
+K value: 2 | datasets/accidents.valid.data : -47.43328985357658
+time: 4
+K value: 2 | datasets/accidents.valid.data :  Baseline: -47.41887160664877
+K value: 2 | datasets/accidents.valid.data : -47.41887160334079
+time: 5
+ Average Baseline logLikelihood for K=2 is -47.4302164344863
+ Average logLikelihood for K=2 is -47.430216501303356
+K value: 5 | datasets/accidents.valid.data :  Baseline: -47.38487766738424
+K value: 5 | datasets/accidents.valid.data : -45.38487775836048
+time: 10
+K value: 5 | datasets/accidents.valid.data :  Baseline: -47.384455726587646
+K value: 5 | datasets/accidents.valid.data : -45.38445597522279
+time: 13
+K value: 5 | datasets/accidents.valid.data :  Baseline: -47.37958859965
+K value: 5 | datasets/accidents.valid.data : -45.379588481139386
+time: 13
+K value: 5 | datasets/accidents.valid.data :  Baseline: -47.353931147983225
+K value: 5 | datasets/accidents.valid.data : -45.353931040938804
+time: 12
+K value: 5 | datasets/accidents.valid.data :  Baseline: -47.408131893171365
+K value: 5 | datasets/accidents.valid.data : -45.4081319825322
+time: 14
+ Average Baseline logLikelihood for K=5 is -47.382197006955295
+ Average logLikelihood for K=5 is -45.38219704763874
+K value: 10 | datasets/accidents.valid.data :  Baseline: -47.37473165807403
+K value: 10 | datasets/accidents.valid.data : -44.204806699419514
+time: 20
+K value: 10 | datasets/accidents.valid.data :  Baseline: -47.369052062638254
+K value: 10 | datasets/accidents.valid.data : -44.199127171460674
+time: 17
+K value: 10 | datasets/accidents.valid.data :  Baseline: -47.37301713522727
+K value: 10 | datasets/accidents.valid.data : -44.203092186366625
+time: 17
+K value: 10 | datasets/accidents.valid.data :  Baseline: -47.35787154234888
+K value: 10 | datasets/accidents.valid.data : -44.18794671281848
+time: 21
+K value: 10 | datasets/accidents.valid.data :  Baseline: -47.383908817751866
+K value: 10 | datasets/accidents.valid.data : -44.21398411765253
+time: 18
+ Average Baseline logLikelihood for K=10 is -47.37171624320806
+ Average logLikelihood for K=10 is -44.201791377543564
+K value: 20 | datasets/accidents.valid.data :  Baseline: -47.345275620300185
+K value: 20 | datasets/accidents.valid.data : -43.0973482249257
+time: 37
+K value: 20 | datasets/accidents.valid.data :  Baseline: -47.353688794764984
+K value: 20 | datasets/accidents.valid.data : -43.105761564791266
+time: 36
+K value: 20 | datasets/accidents.valid.data :  Baseline: -47.3460013281736
+K value: 20 | datasets/accidents.valid.data : -43.09807400341182
+time: 34
+K value: 20 | datasets/accidents.valid.data :  Baseline: -47.38111179638066
+K value: 20 | datasets/accidents.valid.data : -43.13318436663232
+time: 34
+K value: 20 | datasets/accidents.valid.data :  Baseline: -47.34940053783369
+K value: 20 | datasets/accidents.valid.data : -43.10147314037127
+time: 35
+ Average Baseline logLikelihood for K=20 is -47.35509561549062
+ Average logLikelihood for K=20 is -43.10716826002648
+K value: 30 | datasets/accidents.valid.data :  Baseline: -47.345649199854584
+K value: 30 | datasets/accidents.valid.data : -42.48766836946362
+time: 49
+K value: 30 | datasets/accidents.valid.data :  Baseline: -47.34745525094682
+K value: 30 | datasets/accidents.valid.data : -42.48947435084542
+time: 49
+K value: 30 | datasets/accidents.valid.data :  Baseline: -47.366094704605985
+K value: 30 | datasets/accidents.valid.data : -42.50811376744422
+time: 50
+K value: 30 | datasets/accidents.valid.data :  Baseline: -47.34865550302722
+K value: 30 | datasets/accidents.valid.data : -42.49067461998093
+time: 50
+K value: 30 | datasets/accidents.valid.data :  Baseline: -47.345501539144315
+K value: 30 | datasets/accidents.valid.data : -42.48752063615126
+time: 47
+ Average Baseline logLikelihood for K=30 is -47.35067123951578
+ Average logLikelihood for K=30 is -42.49269034877709
+K value: 40 | datasets/accidents.valid.data :  Baseline: -47.3574234360712
+K value: 40 | datasets/accidents.valid.data : -42.07202127603114
+time: 72
+K value: 40 | datasets/accidents.valid.data :  Baseline: -47.3494873486074
+K value: 40 | datasets/accidents.valid.data : -42.06408523648569
+time: 66
+K value: 40 | datasets/accidents.valid.data :  Baseline: -47.35345535759428
+K value: 40 | datasets/accidents.valid.data : -42.068053243968095
+time: 67
+K value: 40 | datasets/accidents.valid.data :  Baseline: -47.34786888996485
+K value: 40 | datasets/accidents.valid.data : -42.06246675611496
+time: 70
+K value: 40 | datasets/accidents.valid.data :  Baseline: -47.36135763596102
+K value: 40 | datasets/accidents.valid.data : -42.07595548737417
+time: 65
+ Average Baseline logLikelihood for K=40 is -47.35391853363974
+ Average logLikelihood for K=40 is -42.06851639999481
+K value: 50 | datasets/accidents.valid.data :  Baseline: -47.36083261451248
+K value: 50 | datasets/accidents.valid.data : -41.74612283685297
+time: 83
+K value: 50 | datasets/accidents.valid.data :  Baseline: -47.35597648887564
+K value: 50 | datasets/accidents.valid.data : -41.7412667056714
+time: 82
+K value: 50 | datasets/accidents.valid.data :  Baseline: -47.343911637283284
+K value: 50 | datasets/accidents.valid.data : -41.729201859796945
+time: 80
+K value: 50 | datasets/accidents.valid.data :  Baseline: -47.35592990464399
+K value: 50 | datasets/accidents.valid.data : -41.7412201382217
+time: 80
+K value: 50 | datasets/accidents.valid.data :  Baseline: -47.34739479963026
+K value: 50 | datasets/accidents.valid.data : -41.73268506707287
+time: 83
+ Average Baseline logLikelihood for K=50 is -47.35280908898913
+ Average logLikelihood for K=50 is -41.73809932152318
+K value: 60 | datasets/accidents.valid.data :  Baseline: -47.34842472581292
+K value: 60 | datasets/accidents.valid.data : -41.465781745309705
+time: 93
+K value: 60 | datasets/accidents.valid.data :  Baseline: -47.364053067330985
+K value: 60 | datasets/accidents.valid.data : -41.48141005778719
+time: 83
+K value: 60 | datasets/accidents.valid.data :  Baseline: -47.35110391852142
+K value: 60 | datasets/accidents.valid.data : -41.468460944614044
+time: 85
+K value: 60 | datasets/accidents.valid.data :  Baseline: -47.3610441100935
+K value: 60 | datasets/accidents.valid.data : -41.47840110802024
+time: 88
+K value: 60 | datasets/accidents.valid.data :  Baseline: -47.343497478062226
+K value: 60 | datasets/accidents.valid.data : -41.4608544835539
+time: 84
+ Average Baseline logLikelihood for K=60 is -47.35362465996421
+ Average logLikelihood for K=60 is -41.47098166785702
+K value: 70 | datasets/accidents.valid.data :  Baseline: -47.35450950708061
+K value: 70 | datasets/accidents.valid.data : -41.24598509001762
+time: 113
+K value: 70 | datasets/accidents.valid.data :  Baseline: -47.34842361938718
+K value: 70 | datasets/accidents.valid.data : -41.239899212043284
+time: 104
+K value: 70 | datasets/accidents.valid.data :  Baseline: -47.359278633179024
+K value: 70 | datasets/accidents.valid.data : -41.25075422331961
+time: 100
+K value: 70 | datasets/accidents.valid.data :  Baseline: -47.34805839030118
+K value: 70 | datasets/accidents.valid.data : -41.239533991296724
+time: 111
+K value: 70 | datasets/accidents.valid.data :  Baseline: -47.3563410421574
+K value: 70 | datasets/accidents.valid.data : -41.247816615918644
+time: 121
+ Average Baseline logLikelihood for K=70 is -47.35332223842108
+ Average logLikelihood for K=70 is -41.244797826519175
+K value: 80 | datasets/accidents.valid.data :  Baseline: -47.34669826537813
+K value: 80 | datasets/accidents.valid.data : -41.04291759200994
+time: 119
+K value: 80 | datasets/accidents.valid.data :  Baseline: -47.34658094589841
+K value: 80 | datasets/accidents.valid.data : -41.042800238814685
+time: 113
+K value: 80 | datasets/accidents.valid.data :  Baseline: -47.361142907939424
+K value: 80 | datasets/accidents.valid.data : -41.05736218463849
+time: 119
+K value: 80 | datasets/accidents.valid.data :  Baseline: -47.35095071219059
+K value: 80 | datasets/accidents.valid.data : -41.047169998067815
+time: 111
+K value: 80 | datasets/accidents.valid.data :  Baseline: -47.34704485589293
+K value: 80 | datasets/accidents.valid.data : -41.043264169872764
+time: 106
+ Average Baseline logLikelihood for K=80 is -47.3504835374599
+ Average logLikelihood for K=80 is -41.046702836680744
+K value: 90 | datasets/accidents.valid.data :  Baseline: -47.3483293908726
+K value: 90 | datasets/accidents.valid.data : -40.87259598844108
+time: 118
+K value: 90 | datasets/accidents.valid.data :  Baseline: -47.34380067306429
+K value: 90 | datasets/accidents.valid.data : -40.8680672909856
+time: 119
+K value: 90 | datasets/accidents.valid.data :  Baseline: -47.35063653135267
+K value: 90 | datasets/accidents.valid.data : -40.87490313383288
+time: 122
+K value: 90 | datasets/accidents.valid.data :  Baseline: -47.34439922407554
+K value: 90 | datasets/accidents.valid.data : -40.86866584461405
+time: 122
+K value: 90 | datasets/accidents.valid.data :  Baseline: -47.34854236514871
+K value: 90 | datasets/accidents.valid.data : -40.87280897667664
+time: 126
+ Average Baseline logLikelihood for K=90 is -47.34714163690276
+ Average logLikelihood for K=90 is -40.87140824691005
+K value: 100 | datasets/accidents.valid.data :  Baseline: -47.34340204304316
+K value: 100 | datasets/accidents.valid.data : -40.71404545538656
+time: 135
+K value: 100 | datasets/accidents.valid.data :  Baseline: -47.346580822012534
+K value: 100 | datasets/accidents.valid.data : -40.71722423679728
+time: 133
+K value: 100 | datasets/accidents.valid.data :  Baseline: -47.34576113705628
+K value: 100 | datasets/accidents.valid.data : -40.7164045479729
+time: 132
+K value: 100 | datasets/accidents.valid.data :  Baseline: -47.34458407018783
+K value: 100 | datasets/accidents.valid.data : -40.71522747781939
+time: 139
+K value: 100 | datasets/accidents.valid.data :  Baseline: -47.349018396489505
+K value: 100 | datasets/accidents.valid.data : -40.71966180126553
+time: 136
+ Average Baseline logLikelihood for K=100 is -47.345869293757865
+ Average logLikelihood for K=100 is -40.71651270384833
+ Best BN is 100
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:10 h
+[INFO] Finished at: 2018-04-24T12:20:49-05:00
+[INFO] Final Memory: 8M/34M
+[INFO] ------------------------------------------------------------------------

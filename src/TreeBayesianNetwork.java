@@ -50,6 +50,7 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 
 	public void run(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println("Tree Bayesian Network");
 		trainingData = null;
 		this.firstSampleFlag = true;
 		this.numberOfTrainingSamples = 0;
@@ -63,7 +64,7 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		learnBN();
 		String testFile = args[1];
 		processData(testFile, false);
-		System.out.println(testFile+" : "+(this.testLogLikelihood/this.numberOfTestSamples));
+		System.out.println("loglikelihood of "+ testFile+" is "+(this.testLogLikelihood/this.numberOfTestSamples));
 	}
 
 	public void learnBN() {

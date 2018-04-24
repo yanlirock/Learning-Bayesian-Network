@@ -31,6 +31,7 @@ public class BaggingMixtureTreeBayesianNetwork extends ParameterLearningBN {
 	}
 	
 	public void run(String[] args) {
+		System.out.println("Bagging "+ this.sizeOfLatentVariable +" Mixture Tree Bayesian Network");
 		trainingData = null;
 		this.firstSampleFlag = true;
 		this.numberOfTrainingSamples = 0;
@@ -42,8 +43,8 @@ public class BaggingMixtureTreeBayesianNetwork extends ParameterLearningBN {
 		learnBaggingMixture();
 		String testFile = args[1];
 		processData(testFile, false);
-		System.out.println("K value: "+ this.sizeOfLatentVariable +" | "+testFile+" :  Baseline: "+(this.baselineTestLogLikelihood/this.numberOfTestSamples));
-		System.out.println("K value: "+ this.sizeOfLatentVariable +" | "+testFile+" : "+(this.testLogLikelihood/this.numberOfTestSamples));
+		System.out.println("K value: "+ this.sizeOfLatentVariable +" | Baseline loglikelihood of "+testFile+" is "+(this.baselineTestLogLikelihood/this.numberOfTestSamples));
+		System.out.println("K value: "+ this.sizeOfLatentVariable +" | loglikelihood of "+testFile+" is "+(this.testLogLikelihood/this.numberOfTestSamples));
 	}
 
 	private void learnBaggingMixture() {
