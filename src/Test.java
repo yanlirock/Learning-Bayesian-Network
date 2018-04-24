@@ -16,7 +16,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		String[] testArgs, validationArgs;
-		int[] kValues = {2,5,10,15,20,25,30};
+		int[] kValues = {2, 5, 10,15,20,25,30};
 		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		for(String[] dataset : datasets) {
 			MixtureTreeBayesianNetwork bn = null;

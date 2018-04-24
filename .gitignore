@@ -1,4 +1,4 @@
-.gitignore
+\.gitignore
 datasets/
 /bin/
 /target/
@@ -6,3 +6,5 @@ datasets/
 .settings/
 
 \.classpath
+
+\.project
