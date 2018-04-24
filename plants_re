@@ -31,3 +31,113 @@ time: 30
 converged after 20 iterations
 K value: 2 | datasets/plants.valid.data : -22.049228713534333
 time: 56
+converged after 18 iterations
+K value: 2 | datasets/plants.valid.data : -22.053476093664745
+time: 55
+ Average logLikelihood for K=2 is -22.133512075655453
+converged after 33 iterations
+K value: 5 | datasets/plants.valid.data : -20.503884270781736
+time: 252
+converged after 17 iterations
+K value: 5 | datasets/plants.valid.data : -20.57224692974076
+time: 122
+converged after 26 iterations
+K value: 5 | datasets/plants.valid.data : -20.708726095179987
+time: 185
+converged after 23 iterations
+K value: 5 | datasets/plants.valid.data : -20.585128982613092
+time: 169
+converged after 37 iterations
+K value: 5 | datasets/plants.valid.data : -20.528981919139646
+time: 280
+ Average logLikelihood for K=5 is -20.579793639491044
+converged after 33 iterations
+K value: 10 | datasets/plants.valid.data : -19.561327473931964
+time: 503
+converged after 23 iterations
+K value: 10 | datasets/plants.valid.data : -19.599800401413045
+time: 333
+converged after 30 iterations
+K value: 10 | datasets/plants.valid.data : -19.539838347425434
+time: 440
+converged after 26 iterations
+K value: 10 | datasets/plants.valid.data : -19.65964723227976
+time: 382
+converged after 21 iterations
+K value: 10 | datasets/plants.valid.data : -19.648164346474463
+time: 307
+ Average logLikelihood for K=10 is -19.601755560304934
+converged after 33 iterations
+K value: 15 | datasets/plants.valid.data : -19.178549453383013
+time: 700
+converged after 40 iterations
+K value: 15 | datasets/plants.valid.data : -19.140586329610482
+time: 1073
+converged after 24 iterations
+K value: 15 | datasets/plants.valid.data : -19.226562595395553
+time: 604
+converged after 26 iterations
+K value: 15 | datasets/plants.valid.data : -19.21140611480134
+time: 602
+converged after 23 iterations
+K value: 15 | datasets/plants.valid.data : -19.25324409849104
+time: 546
+ Average logLikelihood for K=15 is -19.202069718336283
+converged after 24 iterations
+K value: 20 | datasets/plants.valid.data : -19.151696086877227
+time: 770
+converged after 27 iterations
+K value: 20 | datasets/plants.valid.data : -18.99541876844043
+time: 887
+converged after 25 iterations
+K value: 20 | datasets/plants.valid.data : -18.93671144955457
+time: 504
+converged after 29 iterations
+K value: 20 | datasets/plants.valid.data : -18.92681589304875
+time: 525
+converged after 25 iterations
+K value: 20 | datasets/plants.valid.data : -18.915483453227242
+time: 633
+ Average logLikelihood for K=20 is -18.985225130229644
+converged after 28 iterations
+K value: 25 | datasets/plants.valid.data : -18.75044214168568
+time: 773
+converged after 21 iterations
+K value: 25 | datasets/plants.valid.data : -18.864968878294714
+time: 501
+converged after 28 iterations
+K value: 25 | datasets/plants.valid.data : -18.78345824517012
+time: 848
+converged after 24 iterations
+K value: 25 | datasets/plants.valid.data : -18.779368202759503
+time: 768
+converged after 21 iterations
+K value: 25 | datasets/plants.valid.data : -18.82803536272234
+time: 475
+ Average logLikelihood for K=25 is -18.80125456612647
+converged after 19 iterations
+K value: 30 | datasets/plants.valid.data : -18.786568899475416
+time: 694
+converged after 24 iterations
+K value: 30 | datasets/plants.valid.data : -18.748076394935847
+time: 467
+converged after 28 iterations
+K value: 30 | datasets/plants.valid.data : -18.711073557494643
+time: 583
+converged after 23 iterations
+K value: 30 | datasets/plants.valid.data : -18.748323032950527
+time: 465
+converged after 24 iterations
+K value: 30 | datasets/plants.valid.data : -18.66259295325234
+time: 369
+ Average logLikelihood for K=30 is -18.731326967621754
+ Best BN is 30
+K value: 30 | plants.test.data : -18.6293159074528
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 04:26 h
+[INFO] Finished at: 2018-04-23T21:11:37-05:00
+[INFO] Final Memory: 7M/48M
+[INFO] ------------------------------------------------------------------------

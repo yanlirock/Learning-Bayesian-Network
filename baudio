@@ -83,3 +83,46 @@ converged after 20 iterations
 K value: 15 | datasets/baudio.valid.data : -57.66654307734852
 time: 441
  Average logLikelihood for K=15 is -57.7364787533518
+converged after 20 iterations
+K value: 20 | datasets/baudio.valid.data : -57.68290076348727
+time: 790
+converged after 24 iterations
+K value: 20 | datasets/baudio.valid.data : -57.53274158991178
+time: 923
+converged after 16 iterations
+K value: 20 | datasets/baudio.valid.data : -57.65663226994167
+time: 697
+converged after 18 iterations
+K value: 20 | datasets/baudio.valid.data : -57.50267761545497
+time: 644
+converged after 21 iterations
+K value: 20 | datasets/baudio.valid.data : -57.56708883337226
+time: 746
+ Average logLikelihood for K=20 is -57.58840821443359
+converged after 22 iterations
+K value: 25 | datasets/baudio.valid.data : -57.62656529798782
+time: 1288
+converged after 20 iterations
+K value: 25 | datasets/baudio.valid.data : -57.644705373417914
+time: 885
+converged after 15 iterations
+K value: 25 | datasets/baudio.valid.data : -57.577040100770134
+time: 868
+converged after 14 iterations
+K value: 25 | datasets/baudio.valid.data : -57.726412635825916
+time: 620
+converged after 22 iterations
+K value: 25 | datasets/baudio.valid.data : -57.58127807027142
+time: 980
+ Average logLikelihood for K=25 is -57.63120029565464
+Threshold found at: 25
+ Best BN is 20
+K value: 20 | baudio.test.data : -57.901425872332396
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 04:24 h
+[INFO] Finished at: 2018-04-23T19:04:50-05:00
+[INFO] Final Memory: 7M/40M
+[INFO] ------------------------------------------------------------------------

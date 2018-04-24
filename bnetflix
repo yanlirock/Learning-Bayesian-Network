@@ -79,3 +79,65 @@ time: 573
 converged after 16 iterations
 K value: 15 | datasets/bnetflix.valid.data : -82.12833616506154
 time: 573
+converged after 19 iterations
+K value: 15 | datasets/bnetflix.valid.data : -82.18745312008342
+time: 772
+ Average logLikelihood for K=15 is -82.12897156104256
+converged after 17 iterations
+K value: 20 | datasets/bnetflix.valid.data : -81.97144461644979
+time: 1114
+converged after 14 iterations
+K value: 20 | datasets/bnetflix.valid.data : -82.04780616288932
+time: 744
+converged after 16 iterations
+K value: 20 | datasets/bnetflix.valid.data : -81.92167590870594
+time: 1001
+converged after 16 iterations
+K value: 20 | datasets/bnetflix.valid.data : -81.94337128533424
+time: 874
+converged after 14 iterations
+K value: 20 | datasets/bnetflix.valid.data : -82.01885987249129
+time: 924
+ Average logLikelihood for K=20 is -81.98063156917411
+converged after 14 iterations
+K value: 25 | datasets/bnetflix.valid.data : -81.93021511240828
+time: 1010
+converged after 14 iterations
+K value: 25 | datasets/bnetflix.valid.data : -81.93401984164457
+time: 1138
+converged after 16 iterations
+K value: 25 | datasets/bnetflix.valid.data : -81.84976775236248
+time: 1211
+converged after 16 iterations
+K value: 25 | datasets/bnetflix.valid.data : -81.82929202754252
+time: 734
+converged after 16 iterations
+K value: 25 | datasets/bnetflix.valid.data : -81.89860845398836
+time: 766
+ Average logLikelihood for K=25 is -81.88838063758924
+converged after 14 iterations
+K value: 30 | datasets/bnetflix.valid.data : -81.88444223750079
+time: 992
+converged after 15 iterations
+K value: 30 | datasets/bnetflix.valid.data : -81.84434560021676
+time: 884
+converged after 13 iterations
+K value: 30 | datasets/bnetflix.valid.data : -81.90622381412649
+time: 671
+converged after 18 iterations
+K value: 30 | datasets/bnetflix.valid.data : -81.77631676285708
+time: 920
+converged after 14 iterations
+K value: 30 | datasets/bnetflix.valid.data : -81.8296217147042
+time: 751
+ Average logLikelihood for K=30 is -81.84819002588107
+ Best BN is 30
+K value: 30 | bnetflix.test.data : -81.92325143525228
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 06:03 h
+[INFO] Finished at: 2018-04-23T20:44:17-05:00
+[INFO] Final Memory: 7M/40M
+[INFO] ------------------------------------------------------------------------
