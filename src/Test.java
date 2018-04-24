@@ -29,7 +29,7 @@ public class Test {
 				double avgLogLikelihood = 0.0;
 				for(int j=0; j<numberOfIterations;j++) {
 					long startTime = System.currentTimeMillis();
-					bn = new MixtureTreeBayesianNetwork(k,100);
+					bn = new MixtureTreeBayesianNetwork(k);
 					bn.run(validationArgs);					
 					avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
 					long endTime = System.currentTimeMillis();

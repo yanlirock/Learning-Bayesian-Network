@@ -1,0 +1,100 @@
+Running dataset dna.ts.data ...
+K value: 25 | datasets/dna.valid.data :  Baseline: -126.27725832586299
+K value: 25 | datasets/dna.valid.data : -121.69208268319467
+time: 20
+K value: 25 | datasets/dna.valid.data :  Baseline: -126.46645204607296
+K value: 25 | datasets/dna.valid.data : -121.8813495796539
+time: 19
+K value: 25 | datasets/dna.valid.data :  Baseline: -126.50598527586207
+K value: 25 | datasets/dna.valid.data : -121.92091111372788
+time: 21
+K value: 25 | datasets/dna.valid.data :  Baseline: -126.31032544907136
+K value: 25 | datasets/dna.valid.data : -121.72519936664656
+time: 20
+K value: 25 | datasets/dna.valid.data :  Baseline: -126.13076797326475
+K value: 25 | datasets/dna.valid.data : -121.54567828833531
+time: 19
+ Average logLikelihood for K=25 is -121.75304420631167
+K value: 30 | datasets/dna.valid.data :  Baseline: -126.04588690380785
+K value: 30 | datasets/dna.valid.data : -121.18771624009614
+time: 23
+K value: 30 | datasets/dna.valid.data :  Baseline: -126.47162495499943
+K value: 30 | datasets/dna.valid.data : -121.61354293060074
+time: 23
+K value: 30 | datasets/dna.valid.data :  Baseline: -126.09999961951524
+K value: 30 | datasets/dna.valid.data : -121.24181322788249
+time: 23
+K value: 30 | datasets/dna.valid.data :  Baseline: -126.39864419612857
+K value: 30 | datasets/dna.valid.data : -121.54054126651107
+time: 23
+K value: 30 | datasets/dna.valid.data :  Baseline: -126.31268466813977
+K value: 30 | datasets/dna.valid.data : -121.45455792037305
+time: 22
+ Average logLikelihood for K=30 is -121.4076343170927
+K value: 35 | datasets/dna.valid.data :  Baseline: -126.21631839958802
+K value: 35 | datasets/dna.valid.data : -121.12871390513665
+time: 26
+K value: 35 | datasets/dna.valid.data :  Baseline: -126.49441869934623
+K value: 35 | datasets/dna.valid.data : -121.40689270304516
+time: 26
+K value: 35 | datasets/dna.valid.data :  Baseline: -126.43052425096754
+K value: 35 | datasets/dna.valid.data : -121.34296390005152
+time: 26
+K value: 35 | datasets/dna.valid.data :  Baseline: -126.19429779983903
+K value: 35 | datasets/dna.valid.data : -121.10675837933915
+time: 27
+K value: 35 | datasets/dna.valid.data :  Baseline: -126.31145267936323
+K value: 35 | datasets/dna.valid.data : -121.223854503548
+time: 26
+ Average logLikelihood for K=35 is -121.2418366782241
+K value: 40 | datasets/dna.valid.data :  Baseline: -126.41565847539435
+K value: 40 | datasets/dna.valid.data : -121.13016130176605
+time: 30
+K value: 40 | datasets/dna.valid.data :  Baseline: -126.14386286113216
+K value: 40 | datasets/dna.valid.data : -120.85833919069042
+time: 29
+K value: 40 | datasets/dna.valid.data :  Baseline: -126.55482184091593
+K value: 40 | datasets/dna.valid.data : -121.26934370879557
+time: 29
+K value: 40 | datasets/dna.valid.data :  Baseline: -126.0995999548864
+K value: 40 | datasets/dna.valid.data : -120.81406860469751
+time: 30
+K value: 40 | datasets/dna.valid.data :  Baseline: -126.32261857624091
+K value: 40 | datasets/dna.valid.data : -121.03711343751534
+time: 30
+ Average logLikelihood for K=40 is -121.02180524869297
+K value: 50 | datasets/dna.valid.data :  Baseline: -126.39655624888202
+K value: 50 | datasets/dna.valid.data : -120.78175638477313
+time: 37
+K value: 50 | datasets/dna.valid.data :  Baseline: -126.37387304029731
+K value: 50 | datasets/dna.valid.data : -120.75905921108621
+time: 37
+K value: 50 | datasets/dna.valid.data :  Baseline: -126.28907892116824
+K value: 50 | datasets/dna.valid.data : -120.67425060718884
+time: 37
+K value: 50 | datasets/dna.valid.data :  Baseline: -126.42743725932971
+K value: 50 | datasets/dna.valid.data : -120.81266966566903
+time: 37
+K value: 50 | datasets/dna.valid.data :  Baseline: -126.32858125586036
+K value: 50 | datasets/dna.valid.data : -120.71378711932748
+time: 38
+ Average logLikelihood for K=50 is -120.74830459760895
+K value: 70 | datasets/dna.valid.data :  Baseline: -126.54436568449785
+K value: 70 | datasets/dna.valid.data : -120.43578547418902
+time: 52
+K value: 70 | datasets/dna.valid.data :  Baseline: -126.33303895150917
+K value: 70 | datasets/dna.valid.data : -120.22444875128932
+time: 53
+K value: 70 | datasets/dna.valid.data :  Baseline: -126.36169337457537
+K value: 70 | datasets/dna.valid.data : -120.25311593533732
+time: 53
+K value: 70 | datasets/dna.valid.data :  Baseline: -126.11797389121428
+K value: 70 | datasets/dna.valid.data : -120.00939072092068
+time: 53
+K value: 70 | datasets/dna.valid.data :  Baseline: -126.45412508867742
+K value: 70 | datasets/dna.valid.data : -120.34555303983817
+time: 52
+ Average logLikelihood for K=70 is -120.2536587843149
+ Best BN is 70
+K value: 70 | dna.test.data : -120.30912693327677
+time: 1

@@ -197,11 +197,16 @@ public class TreeBayesianNetwork extends ParameterLearningBN{
 		for(int i = 0; i < sample.length; i++) { 
 			data[i] = Integer.parseInt(sample[i]);
 		}
+		test(data);
+	}
+
+
+	public void test(int[] data) {
 		double posProb;
 		Set<DefaultEdge> edges;
 		int s;
 
-		for(int i = 0; i < sample.length; i++) {
+		for(int i = 0; i < data.length; i++) {
 			posProb = getPositiveProbOfVariable(data, i);
 			if(data[i]==1)
 				this.testLogLikelihood += (Math.log(posProb)/Math.log(2));
