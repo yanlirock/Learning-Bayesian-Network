@@ -1,0 +1,126 @@
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset accidents.ts.data ...
+converged after 18 iterations
+K value: 20 | datasets/accidents.test.data : -42.99511727263144
+time: 505
+converged after 34 iterations
+K value: 20 | datasets/accidents.test.data : -42.86901664304566
+time: 862
+converged after 24 iterations
+K value: 20 | datasets/accidents.test.data : -42.98099471506451
+time: 630
+converged after 17 iterations
+K value: 20 | datasets/accidents.test.data : -43.075137322751445
+time: 449
+converged after 25 iterations
+K value: 20 | datasets/accidents.test.data : -42.973895160094415
+time: 656
+converged after 25 iterations
+K value: 20 | datasets/accidents.test.data : -43.14497467987158
+time: 620
+converged after 19 iterations
+K value: 20 | datasets/accidents.test.data : -43.19201771161534
+time: 459
+converged after 27 iterations
+K value: 20 | datasets/accidents.test.data : -43.04805191851425
+time: 719
+converged after 21 iterations
+K value: 20 | datasets/accidents.test.data : -42.82854753165657
+time: 513
+converged after 21 iterations
+K value: 20 | datasets/accidents.test.data : -43.030771841781565
+time: 498
+ Average logLikelihood for K=20 is -43.013852479702685
+time: 0
+Running dataset baudio.ts.data ...
+converged after 16 iterations
+K value: 20 | datasets/baudio.test.data : -57.92454503785891
+time: 457
+converged after 21 iterations
+K value: 20 | datasets/baudio.test.data : -57.839920756603284
+time: 677
+converged after 27 iterations
+K value: 20 | datasets/baudio.test.data : -57.91175334631476
+time: 694
+converged after 19 iterations
+K value: 20 | datasets/baudio.test.data : -57.867661520846866
+time: 528
+converged after 32 iterations
+K value: 20 | datasets/baudio.test.data : -57.865549821132156
+time: 882
+converged after 17 iterations
+K value: 20 | datasets/baudio.test.data : -57.931792424746995
+time: 496
+converged after 24 iterations
+K value: 20 | datasets/baudio.test.data : -57.86653803016101
+time: 527
+converged after 15 iterations
+K value: 20 | datasets/baudio.test.data : -57.97973124839787
+time: 314
+converged after 23 iterations
+K value: 20 | datasets/baudio.test.data : -57.827966016095445
+time: 458
+converged after 16 iterations
+K value: 20 | datasets/baudio.test.data : -57.95419195890415
+time: 336
+ Average logLikelihood for K=20 is -57.89696501610615
+time: 0
+Running dataset jester.ts.data ...
+converged after 19 iterations
+K value: 20 | datasets/jester.test.data : -76.70128408563761
+time: 237
+converged after 15 iterations
+K value: 20 | datasets/jester.test.data : -76.70146817930369
+time: 186
+converged after 21 iterations
+K value: 20 | datasets/jester.test.data : -76.8568119589958
+time: 262
+converged after 17 iterations
+K value: 20 | datasets/jester.test.data : -76.76551999360282
+time: 213
+converged after 16 iterations
+K value: 20 | datasets/jester.test.data : -76.67389028354198
+time: 198
+converged after 21 iterations
+K value: 20 | datasets/jester.test.data : -76.73596476783997
+time: 259
+converged after 17 iterations
+K value: 20 | datasets/jester.test.data : -76.62380633404038
+time: 210
+converged after 15 iterations
+K value: 20 | datasets/jester.test.data : -76.7288383593503
+time: 195
+converged after 16 iterations
+K value: 20 | datasets/jester.test.data : -76.71249342919079
+time: 199
+converged after 15 iterations
+K value: 20 | datasets/jester.test.data : -76.79232835793134
+time: 188
+ Average logLikelihood for K=20 is -76.72924057494347
+time: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 03:44 h
+[INFO] Finished at: 2018-04-24T04:43:45-05:00
+[INFO] Final Memory: 7M/54M
+[INFO] ------------------------------------------------------------------------
