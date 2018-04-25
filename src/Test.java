@@ -4,25 +4,25 @@ public class Test {
 	private static final String pathPrefix = "datasets/";
 	private static final int limitOfConvergence = 100;
 	static String[][] datasets = {
-//			{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20"}, 
-//			{"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "20"}, 
-//			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","35"}, 
-//			{"dna.test.data","dna.ts.data","dna.valid.data","10"},  
-//			{"jester.test.data", "jester.ts.data","jester.valid.data","20"},  
-			{"kdd.test.data", "kdd.ts.data","kdd.valid.data","5"},  
-//			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","2"},  
-//			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "30"}, 
-//			{"plants.test.data", "plants.ts.data", "plants.valid.data","45"},
+			{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20", "10"}, 
+			{"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "20", "15"}, 
+			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","35", "30"}, 
+			{"dna.test.data","dna.ts.data","dna.valid.data","10", "5"},  
+			{"jester.test.data", "jester.ts.data","jester.valid.data","20", "25"},  
+			{"kdd.test.data", "kdd.ts.data","kdd.valid.data","5", "15"},  
+			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","2", "10"},  
+			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "30", "10"}, 
+			{"plants.test.data", "plants.ts.data", "plants.valid.data","45", "20"},
 	};
 
 	public static void main(String[] args) {
-		int[] kValues = {2,5,10,15,20,25,30,50,100,150,200,250,500,1000,1500};
-		int numberOfIterations = 5;
+		int[] kValues = {2,4,5,7,10,12,15,17,20,25,30,35};
+		int numberOfIterations = 10;
 //		findKofMixtureBN(kValues,numberOfIterations, false);
-		findKofBaggingBN(kValues, numberOfIterations, false);
+//		findKofBaggingBN(kValues, numberOfIterations, false);
 //		testIndependentBN();
 //		testTreeBN();
-//		testBaggingBN(numberOfIterations);
+		testBaggingBN(numberOfIterations);
 //		testMixtureBN(numberOfIterations);
 	}
 
@@ -40,7 +40,7 @@ public class Test {
 		for(String[] dataset : datasets) {
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
 			arguments = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
-			testBaggingBN(Integer.parseInt(dataset[3]), numberOfIterations, arguments);
+			testBaggingBN(Integer.parseInt(dataset[4]), numberOfIterations, arguments);
 		}
 	}
 
@@ -75,9 +75,10 @@ public class Test {
 
 	private static void findKofMixtureBN(int[] kValues, int numberOfIterations, boolean test) {
 		String[] validationArgs;
-		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
+//		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		for(String[] dataset : datasets) {
 			MixtureTreeBayesianNetwork bn = null;
+			double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 			int bestK = 0;			
 			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
@@ -130,9 +131,10 @@ public class Test {
 
 	private static void findKofBaggingBN(int[] kValues, int numberOfIterations, boolean test) {
 		String[] validationArgs;
-		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
+//		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		for(String[] dataset : datasets) {
 			BaggingMixtureTreeBayesianNetwork bn = null;
+                        double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 			int bestK = 0;			
 			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");

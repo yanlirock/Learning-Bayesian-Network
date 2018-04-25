@@ -1,0 +1,414 @@
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset jester.ts.data ...
+2 Mixture Tree Bayesian Network
+converged after 12 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -79.98113008053205
+time: 20 secs
+2 Mixture Tree Bayesian Network
+converged after 13 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -80.0308791637062
+time: 21 secs
+2 Mixture Tree Bayesian Network
+converged after 9 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -79.94536764162416
+time: 15 secs
+2 Mixture Tree Bayesian Network
+converged after 13 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -79.97730095449252
+time: 22 secs
+2 Mixture Tree Bayesian Network
+converged after 23 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -79.96231474938914
+time: 42 secs
+2 Mixture Tree Bayesian Network
+converged after 12 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -79.9760793166439
+time: 20 secs
+2 Mixture Tree Bayesian Network
+converged after 4 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -80.746368119931
+time: 10 secs
+2 Mixture Tree Bayesian Network
+converged after 12 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -80.0058675681182
+time: 21 secs
+2 Mixture Tree Bayesian Network
+converged after 9 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -79.98867877289965
+time: 17 secs
+2 Mixture Tree Bayesian Network
+converged after 7 iterations
+K value: 2 | loglikelihood of datasets/jester.valid.data is -80.03288727573418
+time: 14 secs
+Average logLikelihood for K=2 is -80.0646873643071
+4 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.0906829663196
+time: 77 secs
+4 Mixture Tree Bayesian Network
+converged after 33 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.09788988404344
+time: 116 secs
+4 Mixture Tree Bayesian Network
+converged after 24 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.13648317723101
+time: 84 secs
+4 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.0907781744563
+time: 73 secs
+4 Mixture Tree Bayesian Network
+converged after 23 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.05796041385473
+time: 79 secs
+4 Mixture Tree Bayesian Network
+converged after 37 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.10022377098518
+time: 128 secs
+4 Mixture Tree Bayesian Network
+converged after 27 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.1636122883147
+time: 93 secs
+4 Mixture Tree Bayesian Network
+converged after 38 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.03088842488103
+time: 129 secs
+4 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.06059559468248
+time: 65 secs
+4 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 4 | loglikelihood of datasets/jester.valid.data is -78.08755999126228
+time: 71 secs
+Average logLikelihood for K=4 is -78.09166746860308
+5 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.77622812368466
+time: 85 secs
+5 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.86509536773727
+time: 89 secs
+5 Mixture Tree Bayesian Network
+converged after 37 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.81471626598808
+time: 154 secs
+5 Mixture Tree Bayesian Network
+converged after 27 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.77540051242433
+time: 111 secs
+5 Mixture Tree Bayesian Network
+converged after 27 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.82056558509152
+time: 112 secs
+5 Mixture Tree Bayesian Network
+converged after 28 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.8636793518387
+time: 117 secs
+5 Mixture Tree Bayesian Network
+converged after 18 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.7355038900389
+time: 77 secs
+5 Mixture Tree Bayesian Network
+converged after 32 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.81325039225486
+time: 128 secs
+5 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.82324532030907
+time: 93 secs
+5 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 5 | loglikelihood of datasets/jester.valid.data is -77.80774834470996
+time: 87 secs
+Average logLikelihood for K=5 is -77.80954331540772
+7 Mixture Tree Bayesian Network
+converged after 29 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.35932586683029
+time: 175 secs
+7 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.47022001599663
+time: 129 secs
+7 Mixture Tree Bayesian Network
+converged after 25 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.44154065372844
+time: 150 secs
+7 Mixture Tree Bayesian Network
+converged after 25 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.33540152886002
+time: 150 secs
+7 Mixture Tree Bayesian Network
+converged after 25 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.46304433637651
+time: 148 secs
+7 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.42750326147093
+time: 117 secs
+7 Mixture Tree Bayesian Network
+converged after 33 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.51066353687992
+time: 199 secs
+7 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.58685898917814
+time: 129 secs
+7 Mixture Tree Bayesian Network
+converged after 34 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.40765733218704
+time: 203 secs
+7 Mixture Tree Bayesian Network
+converged after 36 iterations
+K value: 7 | loglikelihood of datasets/jester.valid.data is -77.28575982682142
+time: 213 secs
+Average logLikelihood for K=7 is -77.42879753483292
+10 Mixture Tree Bayesian Network
+converged after 26 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -76.99632733924376
+time: 212 secs
+10 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.192572587175
+time: 167 secs
+10 Mixture Tree Bayesian Network
+converged after 27 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.18965371996697
+time: 225 secs
+10 Mixture Tree Bayesian Network
+converged after 17 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.19493831453589
+time: 139 secs
+10 Mixture Tree Bayesian Network
+converged after 31 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.26120687819122
+time: 242 secs
+10 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.25118385909362
+time: 173 secs
+10 Mixture Tree Bayesian Network
+converged after 30 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.07970141017287
+time: 252 secs
+10 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.23662098419041
+time: 169 secs
+10 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.1260180836683
+time: 170 secs
+10 Mixture Tree Bayesian Network
+converged after 19 iterations
+K value: 10 | loglikelihood of datasets/jester.valid.data is -77.23476172838903
+time: 163 secs
+Average logLikelihood for K=10 is -77.1762984904627
+12 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.08222214521122
+time: 215 secs
+12 Mixture Tree Bayesian Network
+converged after 27 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -76.95237548504747
+time: 273 secs
+12 Mixture Tree Bayesian Network
+converged after 27 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.0104127896598
+time: 280 secs
+12 Mixture Tree Bayesian Network
+converged after 24 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.01439491308759
+time: 253 secs
+12 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.14648902503504
+time: 249 secs
+12 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.12139202451536
+time: 239 secs
+12 Mixture Tree Bayesian Network
+converged after 24 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.07072402636051
+time: 251 secs
+12 Mixture Tree Bayesian Network
+converged after 16 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.13811608891923
+time: 168 secs
+12 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.13117430986127
+time: 263 secs
+12 Mixture Tree Bayesian Network
+converged after 23 iterations
+K value: 12 | loglikelihood of datasets/jester.valid.data is -77.10078197598342
+time: 265 secs
+Average logLikelihood for K=12 is -77.07680827836809
+15 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.1772706697831
+time: 301 secs
+15 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.01001688921357
+time: 339 secs
+15 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -76.96169914782212
+time: 264 secs
+15 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -76.9889211266226
+time: 253 secs
+15 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.06184965897782
+time: 276 secs
+15 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.09656153130074
+time: 278 secs
+15 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.1204062081918
+time: 281 secs
+15 Mixture Tree Bayesian Network
+converged after 15 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.11369918703346
+time: 205 secs
+15 Mixture Tree Bayesian Network
+converged after 15 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -76.95626186084006
+time: 230 secs
+15 Mixture Tree Bayesian Network
+converged after 20 iterations
+K value: 15 | loglikelihood of datasets/jester.valid.data is -77.04835529891744
+time: 294 secs
+Average logLikelihood for K=15 is -77.05350415787026
+17 Mixture Tree Bayesian Network
+converged after 19 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.06911688729294
+time: 307 secs
+17 Mixture Tree Bayesian Network
+converged after 21 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.03340575571963
+time: 335 secs
+17 Mixture Tree Bayesian Network
+converged after 18 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.1020383353957
+time: 293 secs
+17 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.00179045962138
+time: 320 secs
+17 Mixture Tree Bayesian Network
+converged after 16 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.12766548184158
+time: 233 secs
+17 Mixture Tree Bayesian Network
+converged after 17 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.05891588103233
+time: 254 secs
+17 Mixture Tree Bayesian Network
+converged after 18 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.1343325895245
+time: 276 secs
+17 Mixture Tree Bayesian Network
+converged after 24 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.1046051897065
+time: 353 secs
+17 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.11796244428854
+time: 356 secs
+17 Mixture Tree Bayesian Network
+converged after 14 iterations
+K value: 17 | loglikelihood of datasets/jester.valid.data is -77.09025706516493
+time: 239 secs
+Average logLikelihood for K=17 is -77.0840090089588
+Threshold found at: 15, breaking the loop
+Best K Value is 15
+Running dataset kdd.ts.data ...
+2 Mixture Tree Bayesian Network
+converged after 5 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.533999630846922
+time: 129 secs
+2 Mixture Tree Bayesian Network
+converged after 30 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.4731378390943184
+time: 747 secs
+2 Mixture Tree Bayesian Network
+converged after 4 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.5462710640596016
+time: 96 secs
+2 Mixture Tree Bayesian Network
+converged after 25 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.4631913619172305
+time: 648 secs
+2 Mixture Tree Bayesian Network
+converged after 3 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.576263921451944
+time: 86 secs
+2 Mixture Tree Bayesian Network
+converged after 1 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.643017126896978
+time: 28 secs
+2 Mixture Tree Bayesian Network
+converged after 22 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.475699523960291
+time: 508 secs
+2 Mixture Tree Bayesian Network
+converged after 10 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.5369899909627756
+time: 225 secs
+2 Mixture Tree Bayesian Network
+converged after 5 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.4901166078186554
+time: 113 secs
+2 Mixture Tree Bayesian Network
+converged after 1 iterations
+K value: 2 | loglikelihood of datasets/kdd.valid.data is -3.6241712069765875
+time: 22 secs
+Average logLikelihood for K=2 is -3.536285827398531
+4 Mixture Tree Bayesian Network
+converged after 1 iterations
+K value: 4 | loglikelihood of datasets/kdd.valid.data is -3.61957953336371
+time: 40 secs
+4 Mixture Tree Bayesian Network
+converged after 4 iterations
+K value: 4 | loglikelihood of datasets/kdd.valid.data is -3.5079429350382436
+time: 158 secs
+4 Mixture Tree Bayesian Network
+converged after 11 iterations
+K value: 4 | loglikelihood of datasets/kdd.valid.data is -3.3965411604789906
+time: 412 secs
+4 Mixture Tree Bayesian Network
+converged after 1 iterations
+K value: 4 | loglikelihood of datasets/kdd.valid.data is -3.622352733372971
+time: 35 secs
+4 Mixture Tree Bayesian Network
+converged after 8 iterations
+K value: 4 | loglikelihood of datasets/kdd.valid.data is -3.4097962116461003
+time: 316 secs
+4 Mixture Tree Bayesian Network
