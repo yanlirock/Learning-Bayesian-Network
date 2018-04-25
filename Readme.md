@@ -16,7 +16,8 @@ Q1:
 
 
 
-#### Average Validation set loglikelihood
+
+#### Average Validation set loglikelihood for Mixture Model
 
 
 | Dataset   |  K=2      | K=5      | K=10     | K=15     | K=20     | K=25     | K=30     | K=35    | K=40   | K =45 | K = 50 |
@@ -30,8 +31,6 @@ Q1:
 | msnbc     | -9.4088   | -9.4333  | -9.4323  | -9.4319  | -9.4322  | -9.4321  |          |         |        |||
 | nltcs     | -9.0385   | -8.6825  | -8.6304  | -8.6092  | -8.5927  | -8.5911  | -8.5905  | -8.5902 |-8.5956 |||
 | plants    | -22.1335  | -20.5797 | -19.6017 | -19.2020 | -18.9852 | -18.8012 | -18.7313 |-18.6624 |-18.5684|-18.5446 | -18.5503 |
-
-#### accidents
 
 
 #### Thresholds
@@ -47,3 +46,17 @@ Q1:
 | msnbc     | 2 | -9.371695548171562 | 0.00051037365791307 |
 | nltcs     | 30 | -8.66995719472829 | 0.0046464900810703 |
 | plants    | 45 |
+
+#### Average Validation set loglikelihood for Bagging Model
+
+| Dataset   |  K=25 | K=30 | Q3 |
+| --------- | ----- | ---- | ---- |
+| accidents | |
+| baudio    | |
+| bnetflix  | |
+| dna       |  |
+| jester    |  |
+| kdd       | |
+| msnbc     | |
+| nltcs     | |
+| plants    | |

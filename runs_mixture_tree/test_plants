@@ -37,3 +37,6 @@ time: 1724
 converged after 25 iterations
 K value: 45 | datasets/plants.test.data : -18.518685817120062
 time: 1498
+converged after 21 iterations
+K value: 45 | datasets/plants.test.data : -18.605455653427093
+time: 916

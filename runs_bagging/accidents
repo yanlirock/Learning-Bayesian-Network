@@ -4,231 +4,383 @@ WARNING: Please consider reporting this to the maintainers of com.google.inject.
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
 [INFO] Scanning for projects...
-[WARNING] 
+[WARNING]
 [WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
 [WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
-[WARNING] 
+[WARNING]
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
+[WARNING]
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO]                                                                         
+[WARNING]
+[INFO]
 [INFO] ------------------------------------------------------------------------
 [INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
-[INFO] 
+[INFO]
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
 Running dataset accidents.ts.data ...
-K value: 2 | datasets/accidents.valid.data :  Baseline: -47.427919889558126
-K value: 2 | datasets/accidents.valid.data : -47.42791974895201
-time: 4
-K value: 2 | datasets/accidents.valid.data :  Baseline: -47.44750186135482
-K value: 2 | datasets/accidents.valid.data : -47.447501925089334
-time: 3
-K value: 2 | datasets/accidents.valid.data :  Baseline: -47.42349950768289
-K value: 2 | datasets/accidents.valid.data : -47.42349937555808
-time: 3
-K value: 2 | datasets/accidents.valid.data :  Baseline: -47.4332893071869
-K value: 2 | datasets/accidents.valid.data : -47.43328985357658
-time: 4
-K value: 2 | datasets/accidents.valid.data :  Baseline: -47.41887160664877
-K value: 2 | datasets/accidents.valid.data : -47.41887160334079
-time: 5
- Average Baseline logLikelihood for K=2 is -47.4302164344863
- Average logLikelihood for K=2 is -47.430216501303356
-K value: 5 | datasets/accidents.valid.data :  Baseline: -47.38487766738424
-K value: 5 | datasets/accidents.valid.data : -45.38487775836048
-time: 10
-K value: 5 | datasets/accidents.valid.data :  Baseline: -47.384455726587646
-K value: 5 | datasets/accidents.valid.data : -45.38445597522279
-time: 13
-K value: 5 | datasets/accidents.valid.data :  Baseline: -47.37958859965
-K value: 5 | datasets/accidents.valid.data : -45.379588481139386
-time: 13
-K value: 5 | datasets/accidents.valid.data :  Baseline: -47.353931147983225
-K value: 5 | datasets/accidents.valid.data : -45.353931040938804
-time: 12
-K value: 5 | datasets/accidents.valid.data :  Baseline: -47.408131893171365
-K value: 5 | datasets/accidents.valid.data : -45.4081319825322
-time: 14
- Average Baseline logLikelihood for K=5 is -47.382197006955295
- Average logLikelihood for K=5 is -45.38219704763874
-K value: 10 | datasets/accidents.valid.data :  Baseline: -47.37473165807403
-K value: 10 | datasets/accidents.valid.data : -44.204806699419514
-time: 20
-K value: 10 | datasets/accidents.valid.data :  Baseline: -47.369052062638254
-K value: 10 | datasets/accidents.valid.data : -44.199127171460674
-time: 17
-K value: 10 | datasets/accidents.valid.data :  Baseline: -47.37301713522727
-K value: 10 | datasets/accidents.valid.data : -44.203092186366625
-time: 17
-K value: 10 | datasets/accidents.valid.data :  Baseline: -47.35787154234888
-K value: 10 | datasets/accidents.valid.data : -44.18794671281848
-time: 21
-K value: 10 | datasets/accidents.valid.data :  Baseline: -47.383908817751866
-K value: 10 | datasets/accidents.valid.data : -44.21398411765253
-time: 18
- Average Baseline logLikelihood for K=10 is -47.37171624320806
- Average logLikelihood for K=10 is -44.201791377543564
-K value: 20 | datasets/accidents.valid.data :  Baseline: -47.345275620300185
-K value: 20 | datasets/accidents.valid.data : -43.0973482249257
-time: 37
-K value: 20 | datasets/accidents.valid.data :  Baseline: -47.353688794764984
-K value: 20 | datasets/accidents.valid.data : -43.105761564791266
-time: 36
-K value: 20 | datasets/accidents.valid.data :  Baseline: -47.3460013281736
-K value: 20 | datasets/accidents.valid.data : -43.09807400341182
-time: 34
-K value: 20 | datasets/accidents.valid.data :  Baseline: -47.38111179638066
-K value: 20 | datasets/accidents.valid.data : -43.13318436663232
-time: 34
-K value: 20 | datasets/accidents.valid.data :  Baseline: -47.34940053783369
-K value: 20 | datasets/accidents.valid.data : -43.10147314037127
-time: 35
- Average Baseline logLikelihood for K=20 is -47.35509561549062
- Average logLikelihood for K=20 is -43.10716826002648
-K value: 30 | datasets/accidents.valid.data :  Baseline: -47.345649199854584
-K value: 30 | datasets/accidents.valid.data : -42.48766836946362
-time: 49
-K value: 30 | datasets/accidents.valid.data :  Baseline: -47.34745525094682
-K value: 30 | datasets/accidents.valid.data : -42.48947435084542
-time: 49
-K value: 30 | datasets/accidents.valid.data :  Baseline: -47.366094704605985
-K value: 30 | datasets/accidents.valid.data : -42.50811376744422
-time: 50
-K value: 30 | datasets/accidents.valid.data :  Baseline: -47.34865550302722
-K value: 30 | datasets/accidents.valid.data : -42.49067461998093
-time: 50
-K value: 30 | datasets/accidents.valid.data :  Baseline: -47.345501539144315
-K value: 30 | datasets/accidents.valid.data : -42.48752063615126
-time: 47
- Average Baseline logLikelihood for K=30 is -47.35067123951578
- Average logLikelihood for K=30 is -42.49269034877709
-K value: 40 | datasets/accidents.valid.data :  Baseline: -47.3574234360712
-K value: 40 | datasets/accidents.valid.data : -42.07202127603114
-time: 72
-K value: 40 | datasets/accidents.valid.data :  Baseline: -47.3494873486074
-K value: 40 | datasets/accidents.valid.data : -42.06408523648569
-time: 66
-K value: 40 | datasets/accidents.valid.data :  Baseline: -47.35345535759428
-K value: 40 | datasets/accidents.valid.data : -42.068053243968095
-time: 67
-K value: 40 | datasets/accidents.valid.data :  Baseline: -47.34786888996485
-K value: 40 | datasets/accidents.valid.data : -42.06246675611496
-time: 70
-K value: 40 | datasets/accidents.valid.data :  Baseline: -47.36135763596102
-K value: 40 | datasets/accidents.valid.data : -42.07595548737417
-time: 65
- Average Baseline logLikelihood for K=40 is -47.35391853363974
- Average logLikelihood for K=40 is -42.06851639999481
-K value: 50 | datasets/accidents.valid.data :  Baseline: -47.36083261451248
-K value: 50 | datasets/accidents.valid.data : -41.74612283685297
-time: 83
-K value: 50 | datasets/accidents.valid.data :  Baseline: -47.35597648887564
-K value: 50 | datasets/accidents.valid.data : -41.7412667056714
-time: 82
-K value: 50 | datasets/accidents.valid.data :  Baseline: -47.343911637283284
-K value: 50 | datasets/accidents.valid.data : -41.729201859796945
-time: 80
-K value: 50 | datasets/accidents.valid.data :  Baseline: -47.35592990464399
-K value: 50 | datasets/accidents.valid.data : -41.7412201382217
-time: 80
-K value: 50 | datasets/accidents.valid.data :  Baseline: -47.34739479963026
-K value: 50 | datasets/accidents.valid.data : -41.73268506707287
-time: 83
- Average Baseline logLikelihood for K=50 is -47.35280908898913
- Average logLikelihood for K=50 is -41.73809932152318
-K value: 60 | datasets/accidents.valid.data :  Baseline: -47.34842472581292
-K value: 60 | datasets/accidents.valid.data : -41.465781745309705
-time: 93
-K value: 60 | datasets/accidents.valid.data :  Baseline: -47.364053067330985
-K value: 60 | datasets/accidents.valid.data : -41.48141005778719
-time: 83
-K value: 60 | datasets/accidents.valid.data :  Baseline: -47.35110391852142
-K value: 60 | datasets/accidents.valid.data : -41.468460944614044
-time: 85
-K value: 60 | datasets/accidents.valid.data :  Baseline: -47.3610441100935
-K value: 60 | datasets/accidents.valid.data : -41.47840110802024
-time: 88
-K value: 60 | datasets/accidents.valid.data :  Baseline: -47.343497478062226
-K value: 60 | datasets/accidents.valid.data : -41.4608544835539
-time: 84
- Average Baseline logLikelihood for K=60 is -47.35362465996421
- Average logLikelihood for K=60 is -41.47098166785702
-K value: 70 | datasets/accidents.valid.data :  Baseline: -47.35450950708061
-K value: 70 | datasets/accidents.valid.data : -41.24598509001762
-time: 113
-K value: 70 | datasets/accidents.valid.data :  Baseline: -47.34842361938718
-K value: 70 | datasets/accidents.valid.data : -41.239899212043284
-time: 104
-K value: 70 | datasets/accidents.valid.data :  Baseline: -47.359278633179024
-K value: 70 | datasets/accidents.valid.data : -41.25075422331961
-time: 100
-K value: 70 | datasets/accidents.valid.data :  Baseline: -47.34805839030118
-K value: 70 | datasets/accidents.valid.data : -41.239533991296724
-time: 111
-K value: 70 | datasets/accidents.valid.data :  Baseline: -47.3563410421574
-K value: 70 | datasets/accidents.valid.data : -41.247816615918644
-time: 121
- Average Baseline logLikelihood for K=70 is -47.35332223842108
- Average logLikelihood for K=70 is -41.244797826519175
-K value: 80 | datasets/accidents.valid.data :  Baseline: -47.34669826537813
-K value: 80 | datasets/accidents.valid.data : -41.04291759200994
-time: 119
-K value: 80 | datasets/accidents.valid.data :  Baseline: -47.34658094589841
-K value: 80 | datasets/accidents.valid.data : -41.042800238814685
-time: 113
-K value: 80 | datasets/accidents.valid.data :  Baseline: -47.361142907939424
-K value: 80 | datasets/accidents.valid.data : -41.05736218463849
-time: 119
-K value: 80 | datasets/accidents.valid.data :  Baseline: -47.35095071219059
-K value: 80 | datasets/accidents.valid.data : -41.047169998067815
-time: 111
-K value: 80 | datasets/accidents.valid.data :  Baseline: -47.34704485589293
-K value: 80 | datasets/accidents.valid.data : -41.043264169872764
-time: 106
- Average Baseline logLikelihood for K=80 is -47.3504835374599
- Average logLikelihood for K=80 is -41.046702836680744
-K value: 90 | datasets/accidents.valid.data :  Baseline: -47.3483293908726
-K value: 90 | datasets/accidents.valid.data : -40.87259598844108
-time: 118
-K value: 90 | datasets/accidents.valid.data :  Baseline: -47.34380067306429
-K value: 90 | datasets/accidents.valid.data : -40.8680672909856
-time: 119
-K value: 90 | datasets/accidents.valid.data :  Baseline: -47.35063653135267
-K value: 90 | datasets/accidents.valid.data : -40.87490313383288
-time: 122
-K value: 90 | datasets/accidents.valid.data :  Baseline: -47.34439922407554
-K value: 90 | datasets/accidents.valid.data : -40.86866584461405
-time: 122
-K value: 90 | datasets/accidents.valid.data :  Baseline: -47.34854236514871
-K value: 90 | datasets/accidents.valid.data : -40.87280897667664
-time: 126
- Average Baseline logLikelihood for K=90 is -47.34714163690276
- Average logLikelihood for K=90 is -40.87140824691005
-K value: 100 | datasets/accidents.valid.data :  Baseline: -47.34340204304316
-K value: 100 | datasets/accidents.valid.data : -40.71404545538656
-time: 135
-K value: 100 | datasets/accidents.valid.data :  Baseline: -47.346580822012534
-K value: 100 | datasets/accidents.valid.data : -40.71722423679728
-time: 133
-K value: 100 | datasets/accidents.valid.data :  Baseline: -47.34576113705628
-K value: 100 | datasets/accidents.valid.data : -40.7164045479729
-time: 132
-K value: 100 | datasets/accidents.valid.data :  Baseline: -47.34458407018783
-K value: 100 | datasets/accidents.valid.data : -40.71522747781939
-time: 139
-K value: 100 | datasets/accidents.valid.data :  Baseline: -47.349018396489505
-K value: 100 | datasets/accidents.valid.data : -40.71966180126553
-time: 136
- Average Baseline logLikelihood for K=100 is -47.345869293757865
- Average logLikelihood for K=100 is -40.71651270384833
- Best BN is 100
-time: 0
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.44266925358738
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.44266802380562
+time: 3 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.43064179362471
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.43064108525191
+time: 2 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.41352361810289
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.413523619616406
+time: 2 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.368138845310106
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.36814083545478
+time: 3 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.427220476039125
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.4272206175166
+time: 3 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.385195351386116
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.38519541424358
+time: 2 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.42418841326154
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.42418882179361
+time: 2 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.42148714497319
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.42148675654238
+time: 3 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.429031849706945
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.429031843295995
+time: 3 secs
+Bagging 2 Mixture Tree Bayesian Network
+K value: 2 | Baseline loglikelihood of datasets/accidents.valid.data is -47.418642677068846
+K value: 2 | loglikelihood of datasets/accidents.valid.data is -47.418643146692226
+time: 3 secs
+Average Baseline logLikelihood for K=2 is -47.41607394230609
+Average logLikelihood for K=2 is -47.41607401642131
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.3803548698649
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.380354848063035
+time: 6 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.391863077742045
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.391863892508475
+time: 7 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.40040277554911
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.40040284897996
+time: 7 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.32285640091061
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.32285921198297
+time: 6 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.357053834212174
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.35705374248941
+time: 8 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.39120182000429
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.39120219681388
+time: 7 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.383322451914665
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.38332232294859
+time: 6 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.386226739736586
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.38622683337426
+time: 7 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.36865769582595
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.368657963630305
+time: 7 secs
+Bagging 5 Mixture Tree Bayesian Network
+K value: 5 | Baseline loglikelihood of datasets/accidents.valid.data is -47.3614818109613
+K value: 5 | loglikelihood of datasets/accidents.valid.data is -47.361482066950074
+time: 6 secs
+Average Baseline logLikelihood for K=5 is -47.37434214767217
+Average logLikelihood for K=5 is -47.3743425927741
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.38397726900401
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.38397773649282
+time: 12 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35175596867125
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.35175621415762
+time: 13 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.33431088413263
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.334311185343935
+time: 13 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.354016933936066
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.35401705169912
+time: 12 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35748942174675
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.35748980286754
+time: 11 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.352279666470885
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.35228010511535
+time: 12 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.37125544232733
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.371255791149444
+time: 13 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.3569374333142
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.35693756490956
+time: 12 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35865120834737
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.35865170876829
+time: 12 secs
+Bagging 10 Mixture Tree Bayesian Network
+K value: 10 | Baseline loglikelihood of datasets/accidents.valid.data is -47.36108028086981
+K value: 10 | loglikelihood of datasets/accidents.valid.data is -47.36108036325199
+time: 12 secs
+Average Baseline logLikelihood for K=10 is -47.35817545088203
+Average logLikelihood for K=10 is -47.358175752375566
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.377152010104716
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.37715203309387
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.33897199095867
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.338972502860344
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35546344033672
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.35546371417845
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34849327740707
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.348493496958085
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34858612807738
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.34858618686355
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.355528300219596
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.35552845769287
+time: 22 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35290380459968
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.35290395480787
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.367691269261364
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.36769144866742
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.361589139172935
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.36158925694457
+time: 23 secs
+Bagging 20 Mixture Tree Bayesian Network
+K value: 20 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34290021569641
+K value: 20 | loglikelihood of datasets/accidents.valid.data is -47.34290037222268
+time: 25 secs
+Average Baseline logLikelihood for K=20 is -47.354927957583456
+Average logLikelihood for K=20 is -47.35492814242897
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35555195611008
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.35555203684974
+time: 59 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34999056975532
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.3499906742081
+time: 57 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.3473805033791
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.34738058326272
+time: 57 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35297558620277
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.35297566008886
+time: 57 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.352340207267204
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.352340269746485
+time: 56 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34333608355668
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.343336135066224
+time: 56 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35381096471356
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.35381101475565
+time: 56 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35369457940377
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.35369465071518
+time: 57 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.354986923754076
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.35498698200035
+time: 57 secs
+Bagging 50 Mixture Tree Bayesian Network
+K value: 50 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34875044488319
+K value: 50 | loglikelihood of datasets/accidents.valid.data is -47.348750509670154
+time: 55 secs
+Average Baseline logLikelihood for K=50 is -47.35128178190258
+Average logLikelihood for K=50 is -47.351281851636344
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.344419355255106
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.34441939087307
+time: 113 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34930027396958
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.34930030676574
+time: 108 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.342404416557486
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.34240444920831
+time: 105 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34666178643685
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.34666182138701
+time: 111 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.351457609584955
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.351457644483084
+time: 113 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34740769542532
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.34740773149764
+time: 118 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34995420060414
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.349954233642656
+time: 118 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35203982548992
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.35203985867841
+time: 133 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34681298686508
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.34681302073895
+time: 132 secs
+Bagging 100 Mixture Tree Bayesian Network
+K value: 100 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35470562454629
+K value: 100 | loglikelihood of datasets/accidents.valid.data is -47.354705656620595
+time: 138 secs
+Average Baseline logLikelihood for K=100 is -47.34851637747347
+Average logLikelihood for K=100 is -47.348516411389554
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34538692755078
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34538695678057
+time: 214 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34385904567078
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.343859083460906
+time: 219 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.346664799319754
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34666482825461
+time: 236 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.3492278450638
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34922787100807
+time: 213 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34802545351326
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34802547484394
+time: 198 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34819670065307
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34819672211321
+time: 189 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34691850089043
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34691852513767
+time: 189 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.35310838649082
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.35310840643024
+time: 196 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34798023268603
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.3479802623624
+time: 200 secs
+Bagging 150 Mixture Tree Bayesian Network
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for Learning-Bayesian-Network:Learning-Bayesian-Network:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 26, column 12
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Learning-Bayesian-Network 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ Learning-Bayesian-Network ---
+Running dataset accidents.ts.data ...
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.340241506685025
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.3402415352542
+time: 202 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34513677426836
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.3451368050951
+time: 207 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.347436316573685
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34743633579969
+time: 219 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.342644263485475
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34264428988029
+time: 221 secs
+Bagging 150 Mixture Tree Bayesian Network
+K value: 150 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34561813622316
+K value: 150 | loglikelihood of datasets/accidents.valid.data is -47.34561816303196
+time: 220 secs
+Average Baseline logLikelihood for K=150 is -47.344215399447144
+Average logLikelihood for K=150 is -47.34421542581225
+========Baseline is better==========
+Bagging 200 Mixture Tree Bayesian Network
+K value: 200 | Baseline loglikelihood of datasets/accidents.valid.data is -47.352231458814046
+K value: 200 | loglikelihood of datasets/accidents.valid.data is -47.3522314806098
+time: 292 secs
+Bagging 200 Mixture Tree Bayesian Network
+K value: 200 | Baseline loglikelihood of datasets/accidents.valid.data is -47.347962222315715
+K value: 200 | loglikelihood of datasets/accidents.valid.data is -47.34796223595662
+time: 258 secs
+Bagging 200 Mixture Tree Bayesian Network
+K value: 200 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34459718503275
+K value: 200 | loglikelihood of datasets/accidents.valid.data is -47.344597200669305
+time: 262 secs
+Bagging 200 Mixture Tree Bayesian Network
+K value: 200 | Baseline loglikelihood of datasets/accidents.valid.data is -47.344978472057484
+K value: 200 | loglikelihood of datasets/accidents.valid.data is -47.34497848729057
+time: 288 secs
+Bagging 200 Mixture Tree Bayesian Network
+K value: 200 | Baseline loglikelihood of datasets/accidents.valid.data is -47.34493741273345
+K value: 200 | loglikelihood of datasets/accidents.valid.data is -47.34493743544589
+time: 302 secs
+Average Baseline logLikelihood for K=200 is -47.34694135019069
+Average logLikelihood for K=200 is -47.34694136799444
+========Baseline is better==========
+Threshold found at 150, breaking the loop
+Best K Value is 150
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:10 h
-[INFO] Finished at: 2018-04-24T12:20:49-05:00
-[INFO] Final Memory: 8M/34M
+[INFO] Total time: 41:15 min
+[INFO] Finished at: 2018-04-24T16:26:36-05:00
+[INFO] Final Memory: 8M/48M
 [INFO] ------------------------------------------------------------------------

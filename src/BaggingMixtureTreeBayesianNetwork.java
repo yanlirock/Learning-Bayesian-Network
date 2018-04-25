@@ -74,14 +74,21 @@ public class BaggingMixtureTreeBayesianNetwork extends ParameterLearningBN {
 			for(int j =0 ; j < this.numberOfTrainingSamples; j++) {
 				treeBN[i].test(this.trainingData.get(j));
 			}
-			this.latentParameters[i] = Math.abs(treeBN[i].testLogLikelihood);
+			this.latentParameters[i] = treeBN[i].testLogLikelihood/treeBN[i].numberOfTestSamples;
 		}
 		double sum = 0.0;
 		for(int i = 0; i< this.sizeOfLatentVariable; i++) {
 			sum += this.latentParameters[i];
 		}
 		for(int i = 0; i< this.sizeOfLatentVariable; i++) {
-			this.latentParameters[i] = (sum-this.latentParameters[i])/sum;
+			this.latentParameters[i] = (sum-this.latentParameters[i]);
+		}
+		sum = 0.0;
+		for(int i = 0; i< this.sizeOfLatentVariable; i++) {
+			sum += this.latentParameters[i];
+		}
+		for(int i = 0; i< this.sizeOfLatentVariable; i++) {
+			this.latentParameters[i] = this.latentParameters[i]/sum;
 		}
 	}
 

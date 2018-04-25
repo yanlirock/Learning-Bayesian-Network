@@ -4,19 +4,19 @@ public class Test {
 	private static final String pathPrefix = "datasets/";
 	private static final int limitOfConvergence = 100;
 	static String[][] datasets = {
-			{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20"}, 
+//			{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20"}, 
 //			{"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "20"}, 
 //			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","35"}, 
 //			{"dna.test.data","dna.ts.data","dna.valid.data","10"},  
 //			{"jester.test.data", "jester.ts.data","jester.valid.data","20"},  
-//			{"kdd.test.data", "kdd.ts.data","kdd.valid.data","5"},  
+			{"kdd.test.data", "kdd.ts.data","kdd.valid.data","5"},  
 //			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","2"},  
 //			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "30"}, 
 //			{"plants.test.data", "plants.ts.data", "plants.valid.data","45"},
 	};
 
 	public static void main(String[] args) {
-		int[] kValues = {110, 120, 150, 200};
+		int[] kValues = {2,5,10,15,20,25,30,50,100,150,200,250,500,1000,1500};
 		int numberOfIterations = 5;
 //		findKofMixtureBN(kValues,numberOfIterations, false);
 		findKofBaggingBN(kValues, numberOfIterations, false);
@@ -78,7 +78,7 @@ public class Test {
 		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		for(String[] dataset : datasets) {
 			MixtureTreeBayesianNetwork bn = null;
-			MixtureTreeBayesianNetwork bestKBN = null;			
+			int bestK = 0;			
 			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
 			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
@@ -96,18 +96,18 @@ public class Test {
 				System.out.println("Average logLikelihood for K="+ k+ " is "+ avgLogLikelihood);
 				if(avgLogLikelihood > bestLogLikelihood) {
 					bestLogLikelihood = avgLogLikelihood;
-					bestKBN = bn;
+					bestK = k;
 				}
 				if(prevLogLikelihood > (avgLogLikelihood) ) {
-					System.out.println("Threshold found at: "+ k);
+					System.out.println("Threshold found at: "+ bestK+ ", breaking the loop");
 					break;
 				}
 				prevLogLikelihood = avgLogLikelihood;
 			}
-			System.out.println("Best K Value is "+ bestKBN.sizeOfLatentVariable);
+			System.out.println("Best K Value is "+ bestK);
 			if(test) {
 				String[] testArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
-				testMixtureBN(bestKBN.sizeOfLatentVariable, 10, testArgs);
+				testMixtureBN(bestK, 10, testArgs);
 			}
 		}
 	}
@@ -133,7 +133,7 @@ public class Test {
 		double bestLogLikelihood = Double.NEGATIVE_INFINITY;
 		for(String[] dataset : datasets) {
 			BaggingMixtureTreeBayesianNetwork bn = null;
-			BaggingMixtureTreeBayesianNetwork bestKBN = null;			
+			int bestK = 0;			
 			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
 			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
@@ -152,20 +152,23 @@ public class Test {
 				avgLogLikelihood = avgLogLikelihood/numberOfIterations;
 				System.out.println("Average Baseline logLikelihood for K="+ k+ " is "+ baselineAvgLogLikelihood/numberOfIterations);
 				System.out.println("Average logLikelihood for K="+ k+ " is "+ avgLogLikelihood);
+				if(avgLogLikelihood < baselineAvgLogLikelihood/numberOfIterations) {
+					System.out.println("========Baseline is better==========");
+				}
 				if(avgLogLikelihood > bestLogLikelihood) {
 					bestLogLikelihood = avgLogLikelihood;
-					bestKBN = bn;
+					bestK = k;
 				}
 				if(prevLogLikelihood > (avgLogLikelihood) ) {
-					System.out.println("Threshold found at "+ k+ ", breaking the loop");
+					System.out.println("Threshold found at "+ bestK+ ", breaking the loop");
 					break;
 				}
 				prevLogLikelihood = avgLogLikelihood;
 			}
-			System.out.println("Best K Value is "+ bestKBN.sizeOfLatentVariable);
+			System.out.println("Best K Value is "+ bestK);
 			if(test) {
 				String[] testArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[0]};
-				testBaggingBN(bestKBN.sizeOfLatentVariable, 10, testArgs);
+				testBaggingBN(bestK, 10, testArgs);
 			}
 		}
 	}
