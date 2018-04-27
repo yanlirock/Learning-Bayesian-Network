@@ -3,27 +3,28 @@ public class Test {
 
 	private static final String pathPrefix = "datasets/";
 	private static final int limitOfConvergence = 100;
+	/*Test file, training file, validation file, K for mixture, K for Bagging*/
 	static String[][] datasets = {
-			{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20", "10"}, 
-			{"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "20", "15"}, 
-			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","35", "30"}, 
-			{"dna.test.data","dna.ts.data","dna.valid.data","10", "5"},  
-			{"jester.test.data", "jester.ts.data","jester.valid.data","20", "25"},  
-			{"kdd.test.data", "kdd.ts.data","kdd.valid.data","5", "15"},  
-			{"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","2", "10"},  
-			{"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "30", "10"}, 
+			// {"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20", "10"},
+			// {"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "17", "15"},
+			{"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","25", "30"},
+			{"dna.test.data","dna.ts.data","dna.valid.data","5", "5"},
+			// {"jester.test.data", "jester.ts.data","jester.valid.data","15", "25"},
+			// {"kdd.test.data", "kdd.ts.data","kdd.valid.data","4", "15"},
+			// {"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","4", "10"},
+			// {"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "35", "10"},
 			{"plants.test.data", "plants.ts.data", "plants.valid.data","45", "20"},
 	};
 
 	public static void main(String[] args) {
 		int[] kValues = {2,4,5,7,10,12,15,17,20,25,30,35};
 		int numberOfIterations = 10;
-//		findKofMixtureBN(kValues,numberOfIterations, false);
+		// findKofMixtureBN(kValues,numberOfIterations, false);
 //		findKofBaggingBN(kValues, numberOfIterations, false);
 //		testIndependentBN();
 //		testTreeBN();
-		testBaggingBN(numberOfIterations);
-//		testMixtureBN(numberOfIterations);
+//		testBaggingBN(numberOfIterations);
+		testMixtureBN(numberOfIterations);
 	}
 
 	private static void testMixtureBN(int numberOfIterations) {
@@ -56,7 +57,7 @@ public class Test {
 			   long endTime   = System.currentTimeMillis();
 			   System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
 		   }
-		   
+
 	}
 
 	private static void testIndependentBN() {
@@ -79,7 +80,7 @@ public class Test {
 		for(String[] dataset : datasets) {
 			MixtureTreeBayesianNetwork bn = null;
 			double bestLogLikelihood = Double.NEGATIVE_INFINITY;
-			int bestK = 0;			
+			int bestK = 0;
 			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
 			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
@@ -88,7 +89,7 @@ public class Test {
 				for(int j=0; j<numberOfIterations;j++) {
 					long startTime = System.currentTimeMillis();
 					bn = new MixtureTreeBayesianNetwork(k,limitOfConvergence);
-					bn.run(validationArgs);					
+					bn.run(validationArgs);
 					avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
 					long endTime = System.currentTimeMillis();
 					System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
@@ -112,7 +113,7 @@ public class Test {
 			}
 		}
 	}
-	
+
 	private static void testMixtureBN(int sizeOfLatentVariable, int numberOfIterations, String[] testArgs) {
 		// TODO Auto-generated method stub
 		MixtureTreeBayesianNetwork bn = null;
@@ -120,7 +121,7 @@ public class Test {
 		for(int j=0; j<numberOfIterations;j++) {
 			long startTime = System.currentTimeMillis();
 			bn = new MixtureTreeBayesianNetwork(sizeOfLatentVariable,limitOfConvergence);
-			bn.run(testArgs);					
+			bn.run(testArgs);
 			avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
 			long endTime = System.currentTimeMillis();
 			System.out.println("time: "+ (endTime - startTime)/1000+ " secs");
@@ -135,7 +136,7 @@ public class Test {
 		for(String[] dataset : datasets) {
 			BaggingMixtureTreeBayesianNetwork bn = null;
                         double bestLogLikelihood = Double.NEGATIVE_INFINITY;
-			int bestK = 0;			
+			int bestK = 0;
 			validationArgs = new String[] {pathPrefix+dataset[1], pathPrefix+dataset[2]};
 			System.out.println("Running dataset "+ dataset[1]+ " ...");
 			double prevLogLikelihood = Double.NEGATIVE_INFINITY;
@@ -145,7 +146,7 @@ public class Test {
 				for(int j=0; j<numberOfIterations;j++) {
 					long startTime = System.currentTimeMillis();
 					bn = new BaggingMixtureTreeBayesianNetwork(k);
-					bn.run(validationArgs);					
+					bn.run(validationArgs);
 					avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
 					baselineAvgLogLikelihood += (bn.baselineTestLogLikelihood/bn.numberOfTestSamples);
 					long endTime = System.currentTimeMillis();
@@ -183,7 +184,7 @@ public class Test {
 		for(int j=0; j<numberOfIterations;j++) {
 			long startTime = System.currentTimeMillis();
 			bn = new BaggingMixtureTreeBayesianNetwork(sizeOfLatentVariable);
-			bn.run(testArgs);					
+			bn.run(testArgs);
 			avgLogLikelihood += (bn.testLogLikelihood/bn.numberOfTestSamples);
 			baselineAvgLogLikelihood += (bn.baselineTestLogLikelihood/bn.numberOfTestSamples);
 			long endTime = System.currentTimeMillis();
