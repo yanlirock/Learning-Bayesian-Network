@@ -1,6 +1,5 @@
 # Learning Bayesian Network
 
-
 This code was implemented using **java 10.0.1** as part of Homework-4 in CS 6375 Machine Learning at University of Texas at Dallas in Spring 2018 by Harsha Kokel. Four different algorithms were implemented of Learning Bayesian Networks and their performance was tested on 10 datasets. These 10 [datasets](http://www.hlt.utdallas.edu/~vgogate/ml/2018s/homeworks/hw4-datasets.zip) are available on the class web page.
 
 ### 1. Independent Bayesian networks.
@@ -11,12 +10,10 @@ public static void main(String[] args) {
 		testIndependentBN();
 }
 ```
-
 Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
 
 
 ### 2. Tree Bayesian networks.
-
 Second method implemented is Structure Learning using [Chow-Liu algorithm](https://www.hlt.utdallas.edu/~vgogate/pgm/sp13/slides/sl.pdf). This assumes that the data has Tree Bayesian Network and the structure and parameters of the Bayesian network are learned. 1-Laplace smoothing is used to ensure that all probabilities are non-zero. This part is implemented in `TreeBayesianNetwork.java`. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
 ```java
@@ -24,16 +21,12 @@ public static void main(String[] args) {
 		testTreeBN();
 }
 ```
-
 Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
 
 ### 3. Mixtures of Tree Bayesian networks using EM.
-
 The model is defined as follows. We have one latent variable having ***k***  values and each mixture component is a Tree Bayesian network. Thus, the distribution over the observed variables, denoted by X (variables in the data) is given by:
 
-![](./extra/mixture.png)
-
-
+<img src="./extra/mixture.png" style="width: 150px;"/>
 where ***k*** is the domain size of latent variable, ***p<subscript>i</subscript>*** is the probability of the i-th mixture component and ***T<subscript>i</subscript>*** is the distribution represented by the i-th Tree Bayesian network. EM-algorithm is used to learn the mixture model. In the M-step each mixture component is learned using the Chow-Liu algorithm. The EM algorithm is run until convergence or until 100 iterations whichever is earlier. Value of ***k*** is selected for each dataset by using the validation set. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
 ```java
@@ -44,15 +37,11 @@ public static void main(String[] args) {
 	findKofMixtureBN(kValues, numberOfIterations, testWithK);
 }
 ```
-
-
 The parameters for `findKofMixtureBN` method are explained below,  
 **kValues** : *(int[])* array of k values which you want to try  
 **numberOfIterations** : *(int)* number of time you want to run the algorithm for each k.  
-**testWithK** :  *(boolean)*  false, if you only want to run the training and validation set to find the k. true, if you want to run test set with the best ***k*** found using validation.
-
-Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
-
+**testWithK** :  *(boolean)*  false, if you only want to run the training and validation set to find the k. true, if you want to run test set with the best ***k*** found using validation.  
+Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.  
 If the ***k*** value is known, you can directly run the test by modifying the `main` method as follows:
 
 ```java
@@ -63,20 +52,17 @@ public static void main(String[] args) {
 ```
 Refer [usage section](#usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
 
-### 4. Mixtures of Tree Bayesian networks using Bagging.
+### 4. Mixtures of Tree Bayesian networks using Bagging
+The model learns the structure and parameters of the Bayesian Network using the following Bagging-style approach. Generate ***k*** sets of Bootstrap samples and for each set learn the Tree Bayesian network using the Chow-Liu algorithm. Similar to model 3, the distribution over observed variables is given by:
 
-The model learns the structure and parameters of the Bayesian Network using
-the following Bagging-style approach. Generate ***k*** sets of Bootstrap samples and for each set learn the Tree Bayesian network using the Chow-Liu algorithm. Similar to model 3, the distribution over observed variables is given by:
-
-![](./extra/mixture.png)
-
+<img src="./extra/mixture.png" style="width: 150px;"/>
 where, ***k*** is the number of bags, ***p<subscript>i</subscript>*** is the probability of the i-th mixture component and ***T<subscript>i</subscript>*** is the distribution represented by the i-th Tree Bayesian network.
 
 Two methods were used to initialize ***p<subscript>i</subscript>***
 1. Baseline: ***p<subscript>i</subscript> = 1/k***  
    Here, equal probability of was given to each mixture.
 2. Heuristic: ***p<subscript>i</subscript> ~ loglikelihood of training set***  
-	 Here, mixture which performed better on the loglikelihood of the training set was given higher weightage.
+   Here, mixture which performed better on the loglikelihood of the training set was given higher weightage.
 
 Experiments show that both the methods perform approximately the same. So, I only report the results with the baseline. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
@@ -88,7 +74,6 @@ public static void main(String[] args) {
 	findKofBaggingBN(kValues, numberOfIterations, testWithK);
 }
 ```
-
 The parameters for `findKofMixtureBN` method are explained below,  
 **kValues** : *(int[])* array of k values which you want to try  
 **numberOfIterations** : *(int)* number of time you want to run the algorithm for each k.  
@@ -109,8 +94,7 @@ Refer [usage section](#usage) for details on how to compile and run the code for
 # Report
 
 The image below shows the log-likelihood obtained for the test sets by the four models on 10 different datasets. Model-1 and Model-2 were run only once as they are deterministic. Model-3 and Model-4 were ran 10 times and the average log likelihood are reported in the table. Model-3 outperforms all the other models for most of the datasets.
-
-![](./extra/test.png)
+<img src="./extra/test.png" style="width: 300px;"/>
 
 #### Test set logLikelihood for all the four models:
 
@@ -136,7 +120,7 @@ The table below reports the average loglikelihood for different ***k*** values f
 #### Average Validation set loglikelihood for various K values using Model 3:
 
 
-| Dataset   |  K=2      | K=4      | K=5      | K=7      | K=10     | K=12     | K=15     | K=17    | K=20    | K =25 | K = 30 |K=35|K=45|  
+| Dataset   |  K=2      | K=4      | K=5      | K=7      | K=10     | K=12     | K=15     | K=17    | K=20    | K=25 | K=30 |K=35|K=45|  
 | -------   | --------  | -------- | -------- | -------  | -------  | -------- | ---------| --------| --------|------ |--------|----|----|  
 | accidents | -45.9761  | -44.1210 | -43.7253 | -43.3596 | -43.0457 | -42.8920 | -42.6954 |-42.6309 |-42.5371 | ||||  
 | baudio    | -60.5300  | -58.8661 | -58.5982 | -58.2411 | -57.9287 | -57.8075 | -57.6779 |-57.6188 | -57.6246 | ||||  
@@ -200,6 +184,9 @@ The best ***k*** value obtained in the above table were used for testing. The av
 | nltcs     | 10 | -9.64984801796504 | 0.019723519696117 |
 | plants    | 20 | -23.495323868802004 | 0.026811381779713 |
 
+The graph below shows the Standard deviation of logLikelihood values for Model-4 and Model-3. It is evident that bagging helps in reducing the variance.
+
+<img src="./extra/sd.png" style="width: 300px;"/>
 
 # Usage
 
