@@ -1,16 +1,10 @@
 # Learning Bayesian Network
 
 
-This code was implemented using **java 10.0.1** as part of Homework-4 in CS 6375 Machine Learning at University of Texas at Dallas in Spring 2018 by Harsha Kokel.
-
-Four different algorithms were implemented of Learning Bayesian Networks and their performance was tested on 10 datasets. These 10 [datasets](http://www.hlt.utdallas.edu/~vgogate/ml/2018s/homeworks/hw4-datasets.zip) are available on the class web page.
+This code was implemented using **java 10.0.1** as part of Homework-4 in CS 6375 Machine Learning at University of Texas at Dallas in Spring 2018 by Harsha Kokel. Four different algorithms were implemented of Learning Bayesian Networks and their performance was tested on 10 datasets. These 10 [datasets](http://www.hlt.utdallas.edu/~vgogate/ml/2018s/homeworks/hw4-datasets.zip) are available on the class web page.
 
 ### 1. Independent Bayesian networks.
-This algorithm assumes an independent Bayesian Network which has no edges. The parameters are learned using the maximum likelihood approach. 1-Laplace smoothing was used to ensure that there are no zero probabilities in the model.
-
-This part is implemented in `IndependentBayesianNetwork.java`.
-
-To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+This algorithm assumes an independent Bayesian Network which has no edges. The parameters are learned using the maximum likelihood approach. 1-Laplace smoothing was used to ensure that there are no zero probabilities in the model. This part is implemented in `IndependentBayesianNetwork.java`. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
 ```java
 public static void main(String[] args) {
@@ -23,12 +17,7 @@ Refer [usage section](#usage) for details on how to compile and run the code for
 
 ### 2. Tree Bayesian networks.
 
-Second method implemented is Structure Learning using [Chow-Liu algorithm](https://www.hlt.utdallas.edu/~vgogate/pgm/sp13/slides/sl.pdf). This assumes that the data has Tree Bayesian Network and the structure and parameters of the Bayesian network are learned. 1-Laplace
-smoothing is used to ensure that all probabilities are non-zero.
-
-This part is implemented in `TreeBayesianNetwork.java`.
-
-To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+Second method implemented is Structure Learning using [Chow-Liu algorithm](https://www.hlt.utdallas.edu/~vgogate/pgm/sp13/slides/sl.pdf). This assumes that the data has Tree Bayesian Network and the structure and parameters of the Bayesian network are learned. 1-Laplace smoothing is used to ensure that all probabilities are non-zero. This part is implemented in `TreeBayesianNetwork.java`. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
 ```java
 public static void main(String[] args) {
@@ -45,11 +34,7 @@ The model is defined as follows. We have one latent variable having ***k***  val
 ![](./extra/mixture.png)
 
 
-where ***k*** is the domain size of latent variable, ***p<subscript>i</subscript>*** is the probability of the i-th mixture component and ***T<subscript>i</subscript>*** is the distribution represented by the i-th Tree Bayesian network.
-EM-algorithm is used to learn the mixture model. In the M-step each mixture
-component is learned using the Chow-Liu algorithm. The EM algorithm is run until convergence or until 100 iterations whichever is earlier. Value of ***k*** is selected for each dataset by using the validation set.
-
-To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+where ***k*** is the domain size of latent variable, ***p<subscript>i</subscript>*** is the probability of the i-th mixture component and ***T<subscript>i</subscript>*** is the distribution represented by the i-th Tree Bayesian network. EM-algorithm is used to learn the mixture model. In the M-step each mixture component is learned using the Chow-Liu algorithm. The EM algorithm is run until convergence or until 100 iterations whichever is earlier. Value of ***k*** is selected for each dataset by using the validation set. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
 ```java
 public static void main(String[] args) {
@@ -93,10 +78,7 @@ Two methods were used to initialize ***p<subscript>i</subscript>***
 2. Heuristic: ***p<subscript>i</subscript> ~ loglikelihood of training set***  
 	 Here, mixture which performed better on the loglikelihood of the training set was given higher weightage.
 
-Experiments show that both the methods perform approximately the same. So, I only report the results with the baseline.
-
-
-To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+Experiments show that both the methods perform approximately the same. So, I only report the results with the baseline. To run this algorithm, modify the `main` method in the file `Test.java` as follows:
 
 ```java
 public static void main(String[] args) {
@@ -220,3 +202,50 @@ The best ***k*** value obtained in the above table were used for testing. The av
 
 
 # Usage
+
+### Configuration changes
+
+To run code for any dataset, you will need to make following changes in the `Test.java` file.
+
+* Update the path of the dataset
+
+```java
+	private static final String pathPrefix = "datasets/";
+```
+
+* Uncomment the chosen dataset
+
+```java
+static String[][] datasets = {
+		{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20", "10"},
+		// {"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "17", "15"},
+		// {"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","25", "30"},
+		// {"dna.test.data","dna.ts.data","dna.valid.data","5", "5"},
+		// {"jester.test.data", "jester.ts.data","jester.valid.data","15", "25"},
+		// {"kdd.test.data", "kdd.ts.data","kdd.valid.data","4", "15"},
+		// {"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","4", "10"},
+		// {"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "35", "10"},
+		// {"plants.test.data", "plants.ts.data", "plants.valid.data","45", "20"},
+};
+```
+
+Note that every dataset is an array of String in following order:
+Test file, training file, validation file, K for mixture model-3, K for bagging model-4
+
+In case you already know the ***k*** value and want to test the data set, you will have to set the k value in this datasets array.
+
+* Update the `main` method to run the model. Above sections explain how to modify `main` method for each model.
+
+### Compile
+
+This project uses **JraphT** library of java for graph. This dependency is added in the `pom.xml` file and hence maven can be used to compile and run this code.
+
+If you are not familiar with maven, please refer [this](https://maven.apache.org/install.html).
+
+To build the project after making required changes, open terminal and go to the directory which has the `pom.xml`.
+command `mvn clean install` will build the project.
+
+
+### Run
+
+To execute the Test file use `mvn exec:java` command. Make sure your build was successful.
