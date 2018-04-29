@@ -216,7 +216,7 @@ To run code for any dataset, you will need to make following changes in the `Tes
 * Uncomment the chosen dataset
 
 ```java
-static String[][] datasets = {
+	static String[][] datasets = {
 		{"accidents.test.data","accidents.ts.data", "accidents.valid.data", "20", "10"},
 		// {"baudio.test.data", "baudio.ts.data", "baudio.valid.data", "17", "15"},
 		// {"bnetflix.test.data","bnetflix.ts.data","bnetflix.valid.data","25", "30"},
@@ -226,7 +226,7 @@ static String[][] datasets = {
 		// {"msnbc.test.data", "msnbc.ts.data","msnbc.valid.data","4", "10"},
 		// {"nltcs.test.data", "nltcs.ts.data", "nltcs.valid.data", "35", "10"},
 		// {"plants.test.data", "plants.ts.data", "plants.valid.data","45", "20"},
-};
+	};
 ```
 
 Note that every dataset is an array of String in following order:
