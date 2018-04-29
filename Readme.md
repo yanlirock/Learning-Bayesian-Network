@@ -18,7 +18,7 @@ public static void main(String[] args) {
 }
 ```
 
-Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
 
 
 ### 2. Tree Bayesian networks.
@@ -36,7 +36,7 @@ public static void main(String[] args) {
 }
 ```
 
-Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
 
 ### 3. Mixtures of Tree Bayesian networks using EM.
 
@@ -66,7 +66,7 @@ The parameters for `findKofMixtureBN` method are explained below,
 **numberOfIterations** : *(int)* number of time you want to run the algorithm for each k.  
 **testWithK** :  *(boolean)*  false, if you only want to run the training and validation set to find the k. true, if you want to run test set with the best ***k*** found using validation.
 
-Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
 
 If the ***k*** value is known, you can directly run the test by modifying the `main` method as follows:
 
@@ -76,7 +76,7 @@ public static void main(String[] args) {
 	testMixtureBN(numberOfIterations);
 }
 ```
-Refer [usage section](#Usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
+Refer [usage section](#usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
 
 ### 4. Mixtures of Tree Bayesian networks using Bagging.
 
@@ -112,7 +112,7 @@ The parameters for `findKofMixtureBN` method are explained below,
 **numberOfIterations** : *(int)* number of time you want to run the algorithm for each k.  
 **testWithK** :  *(boolean)*  false, if you only want to run the training and validation set to find the k. true, if you want to run test set with the best ***k*** found using validation.
 
-Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+Refer [usage section](#usage) for details on how to compile and run the code for specific datasets.
 
 If the ***k*** value is known, you can directly run the test by modifying the `main` method as follows:
 
@@ -122,7 +122,7 @@ public static void main(String[] args) {
 	testBaggingBN(numberOfIterations);
 }
 ```
-Refer [usage section](#Usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
+Refer [usage section](#usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
 
 # Report
 
