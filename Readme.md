@@ -1,85 +1,211 @@
-Q1:
+# Learning Bayesian Network
 
-| Dataset   |  Q1 | Q2 | Q3 | Q4 |
+
+This code was implemented using **java 10.0.1** as part of Homework-4 in CS 6375 Machine Learning at University of Texas at Dallas in Spring 2018 by Harsha Kokel.
+
+Four different algorithms were implemented of Learning Bayesian Networks and their performance was tested on 10 datasets. These 10 [datasets](http://www.hlt.utdallas.edu/~vgogate/ml/2018s/homeworks/hw4-datasets.zip) are available on the class web page.
+
+### 1. Independent Bayesian networks.
+This algorithm assumes an independent Bayesian Network which has no edges. The parameters are learned using the maximum likelihood approach. 1-Laplace smoothing was used to ensure that there are no zero probabilities in the model.
+
+This part is implemented in `IndependentBayesianNetwork.java`.
+
+To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+
+```java
+public static void main(String[] args) {
+		testIndependentBN();
+}
+```
+
+Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+
+
+### 2. Tree Bayesian networks.
+
+Second method implemented is Structure Learning using [Chow-Liu algorithm](https://www.hlt.utdallas.edu/~vgogate/pgm/sp13/slides/sl.pdf). This assumes that the data has Tree Bayesian Network and the structure and parameters of the Bayesian network are learned. 1-Laplace
+smoothing is used to ensure that all probabilities are non-zero.
+
+This part is implemented in `TreeBayesianNetwork.java`.
+
+To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+
+```java
+public static void main(String[] args) {
+		testTreeBN();
+}
+```
+
+Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+
+### 3. Mixtures of Tree Bayesian networks using EM.
+
+The model is defined as follows. We have one latent variable having ***k***  values and each mixture component is a Tree Bayesian network. Thus, the distribution over the observed variables, denoted by X (variables in the data) is given by:
+
+![](./extra/mixture.png)
+
+
+where ***k*** is the domain size of latent variable, ***p<subscript>i</subscript>*** is the probability of the i-th mixture component and ***T<subscript>i</subscript>*** is the distribution represented by the i-th Tree Bayesian network.
+EM-algorithm is used to learn the mixture model. In the M-step each mixture
+component is learned using the Chow-Liu algorithm. The EM algorithm is run until convergence or until 100 iterations whichever is earlier. Value of ***k*** is selected for each dataset by using the validation set.
+
+To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+
+```java
+public static void main(String[] args) {
+	int[] kValues = {2,4,5,7,10,12,15,17,20,25,30,35};
+	int numberOfIterations = 10;
+	boolean testWithK = true;
+	findKofMixtureBN(kValues, numberOfIterations, testWithK);
+}
+```
+
+
+The parameters for `findKofMixtureBN` method are explained below,  
+**kValues** : *(int[])* array of k values which you want to try  
+**numberOfIterations** : *(int)* number of time you want to run the algorithm for each k.  
+**testWithK** :  *(boolean)*  false, if you only want to run the training and validation set to find the k. true, if you want to run test set with the best ***k*** found using validation.
+
+Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+
+If the ***k*** value is known, you can directly run the test by modifying the `main` method as follows:
+
+```java
+public static void main(String[] args) {
+	int numberOfIterations = 10;
+	testMixtureBN(numberOfIterations);
+}
+```
+Refer [usage section](#Usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
+
+### 4. Mixtures of Tree Bayesian networks using Bagging.
+
+The model learns the structure and parameters of the Bayesian Network using
+the following Bagging-style approach. Generate ***k*** sets of Bootstrap samples and for each set learn the Tree Bayesian network using the Chow-Liu algorithm. Similar to model 3, the distribution over observed variables is given by:
+
+![](./extra/mixture.png)
+
+where, ***k*** is the number of bags, ***p<subscript>i</subscript>*** is the probability of the i-th mixture component and ***T<subscript>i</subscript>*** is the distribution represented by the i-th Tree Bayesian network.
+
+Two methods were used to initialize ***p<subscript>i</subscript>***
+1. Baseline: ***p<subscript>i</subscript> = 1/k***  
+   Here, equal probability of was given to each mixture.
+2. Heuristic: ***p<subscript>i</subscript> ~ loglikelihood of training set***  
+	 Here, mixture which performed better on the loglikelihood of the training set was given higher weightage.
+
+Experiments show that both the methods perform approximately the same. So, I only report the results with the baseline.
+
+
+To run this algorithm, modify the `main` method in the file `Test.java` as follows:
+
+```java
+public static void main(String[] args) {
+	int[] kValues = {2,5,10,15,20,25,30,35,40,45};
+	int numberOfIterations = 10;
+	boolean testWithK = true;
+	findKofBaggingBN(kValues, numberOfIterations, testWithK);
+}
+```
+
+The parameters for `findKofMixtureBN` method are explained below,  
+**kValues** : *(int[])* array of k values which you want to try  
+**numberOfIterations** : *(int)* number of time you want to run the algorithm for each k.  
+**testWithK** :  *(boolean)*  false, if you only want to run the training and validation set to find the k. true, if you want to run test set with the best ***k*** found using validation.
+
+Refer [usage section](#Usage) for details on how to compile and run the code for specific datasets.
+
+If the ***k*** value is known, you can directly run the test by modifying the `main` method as follows:
+
+```java
+public static void main(String[] args) {
+	int numberOfIterations = 10;
+	testBaggingBN(numberOfIterations);
+}
+```
+Refer [usage section](#Usage) for details on how to compile and run the code for specifying the ***k*** value for the dataset.
+
+# Report
+
+The image below shows the log-likelihood obtained for the test sets by the four models on 10 different datasets. Model-1 and Model-2 were run only once as they are deterministic. Model-3 and Model-4 were ran 10 times and the average log likelihood are reported in the table. Model-3 outperforms all the other models for most of the datasets.
+
+![](./extra/test.png)
+
+#### Test set logLikelihood for all the four models:
+
+| Dataset   |  Model-1 | Model-2 | Model-3 | Model-4 |
 | --------- | ----- | ---- | ---- |
-| accidents | -65.72876882533004 | -47.88032359587462 | -43.013852479702685 | -47.760117755939646 |
-| baudio    | -71.17812237792157 | -64.01945154721751 | -57.89696501610615  | -63.30822559021463 |
-| bnetflix  | -93.14242459241842 | -86.92287771451494 | -81.90874704059635 | -86.43400231870228 |
-| dna       | -144.8262439010813 | -127.13736581858655 | -122.23491091081937 | -126.57372065952923 |
-| jester    | -92.16390258134399 | -84.0076629988646 | -76.72924057494347 | -82.75321433291776 |
-| kdd       | -3.5284530006024375 | -3.310831711199247 | -3.2904865125802396 | -3.26588965778046 |
-| msnbc     | -9.767254163763425 | -9.435409303894398 | -9.371695548171562 | -9.431685898962115 |
-| nltcs     | -13.32128520270276 | -9.751239575329642 | -8.66995719472829 | -9.64984801796504 |
-| plants    | -45.10761938833193 | -23.83911455992376 |-18.494230533241172 |-23.495323868802004 |
+| accidents | -65.72876882533004 | -47.88032359587462 | -43.02315820381605 | -47.760117755939646 |
+| baudio    | -71.17812237792157 | -64.01945154721751 | -57.942386730244735  | -63.30822559021463 |
+| bnetflix  | -93.14242459241842 | -86.92287771451494 | -81.92602385013016 | -86.43400231870228 |
+| dna       | -144.8262439010813 | -127.13736581858655 | -123.28133639503503 | -126.57372065952923 |
+| jester    | -92.16390258134399 | -84.0076629988646 | -76.68634915468888 | -82.75321433291776 |
+| kdd       | -3.5284530006024375 | -3.310831711199247 | -3.160275601057566  | -3.26588965778046 |
+| msnbc     | -9.767254163763425 | -9.435409303894398 |-9.432363569169166 | -9.431685898962115 |
+| nltcs     | -13.32128520270276 | -9.751239575329642 |-8.772005572463344 | -9.64984801796504 |
+| plants    | -45.10761938833193 | -23.83911455992376 | -18.494230533241172 |-23.495323868802004 |
 
 
 
+## Model 3
 
+The table below reports the average loglikelihood for different ***k*** values for Mixture Tree Bayesian Network.
 
+#### Average Validation set loglikelihood for various K values using Model 3:
 
-#### Average Validation set loglikelihood for Mixture Model
+| Dataset   |  K=2      | K=4      | K=5      | K=7      | K=10     | K=12     | K=15     | K=17    | K=20    | K =25 | K = 30 |K=35|K=45|
+| -------   | --------  | -------- | -------- | -------  | -------  | -------- | -----    | --------| -------- | ||||
+| accidents | -45.9761  | -44.1210 | -43.7253 | -43.3596 | -43.0457 | -42.8920 | -42.6954 |-42.6309 |-42.5371 | ||||
+| baudio    | -60.5300  | -58.8661 | -58.5982 | -58.2411 | -57.9287 | -57.8075 | -57.6779 |-57.6188 | -57.6246 | ||||
+| bnetflix  | -85.4018  | -83.6994 | -83.4252 | -82.8964 | -82.4518 | -82.3129 | -82.0118 |-82.0679 |-81.9340 | -81.8421 | -81.8447|||
+| dna       | -124.2474 |-123.7971 |-122.6303 |-122.9323 |          |          |          |         |        | ||||
+| jester    | -80.0646  | -78.0916 | -77.8095 | -77.4287 | -77.1762 | -77.0768 | -77.0535 |-77.0840 |        |||||
+| kdd       | -3.5362   |-3.5044   | -3.5234  |          |          |          |          |         |        |||||
+| msnbc     | -9.4332   | -9.4326  | -9.4332  |  |   |   |          |          |        |||||
+| nltcs     | -9.3084   | -8.8319  | -8.6875  | -8.6514  | -8.6314  | -8.6233  | -8.6141  | -8.6057 |-8.5994 |-8.5977|-8.5950|-8.5932|||
+| plants    | -22.4688  | -20.9010 | -20.5573 | -20.0870 | -19.5691 | -19.3843 | -19.1873 |-19.0572 |-18.9522|-18.7711 |-18.6954|-18.6351|-18.4887|
 
+The best ***k*** value obtained in the above table were used for testing. The average loglikelihood obtained on the test set and the standard deviation are reported in the table below.
 
-| Dataset   |  K=2      | K=5      | K=10     | K=15     | K=20     | K=25     | K=30     | K=35    | K=40   | K =45 | K = 50 |
-| -------   | --------  | -------- | -------- | -------  | -------  | -------- |          |         |        | ||
-| accidents | -45.7313  | -43.7560 | -42.9740 | -42.5693 | -42.4063 | -42.4724 |          |         |        | ||
-| baudio    | -60.3512  | -58.6073 | -57.9775 | -57.7364 | -57.5884 | -57.6312 |          |         |        | ||
-| bnetflix  | -85.5821  | -83.4247 | -82.4611 | -82.1289 | -81.9806 | -81.8883 | -81.8481 |-81.7727 |-81.8506 | ||
-| dna       | -125.1914 |-122.4935 |-121.6232 |-122.5378 |          |          |          |         |        | ||
-| jester    | -80.3007  | -77.8313 | -77.2069 | -77.0836 | -77.0775 | -77.1835 |          |         |        |||
-| kdd       | -3.4522   | -3.3822  | -3.5668  |          |          |          |          |         |        |||
-| msnbc     | -9.4088   | -9.4333  | -9.4323  | -9.4319  | -9.4322  | -9.4321  |          |         |        |||
-| nltcs     | -9.0385   | -8.6825  | -8.6304  | -8.6092  | -8.5927  | -8.5911  | -8.5905  | -8.5902 |-8.5956 |||
-| plants    | -22.1335  | -20.5797 | -19.6017 | -19.2020 | -18.9852 | -18.8012 | -18.7313 |-18.6624 |-18.5684|-18.5446 | -18.5503 |
-
-
-#### Lower Thresholds for Mixture
-
-| Dataset   | K  | average | standard deviation |
-| -------   | -- | ----- | ---- |
-| accidents | 20 | -43.013852479702685 |0.1060613742496 |
-| baudio    | 20 | -57.89696501610615| 0.048066405337541 |
-| bnetflix  | 35 |  -81.90874704059635 | 0.044916129513427 |
-| dna       | 10 | -122.23491091081937 | 0.84590433387201 |
-| jester    | 20 | -76.72924057494347 | 	0.063910584527938 |
-| kdd       | 5  | -3.205472683258899 |	0.090707578406819 |
-| msnbc     | 2 | -9.371695548171562 | 0.00051037365791307 |
-| nltcs     | 30 | -8.66995719472829 | 0.0046464900810703 |
-| plants    | 45 | -18.494230533241172 | 	0.038551314867443 |
-
-
-#### Thresholds for Mixture
+#### Average Test set loglikelihood for the best K found using validation set:
 
 | Dataset   | K  | average | standard deviation |
 | -------   | -- | ----- | ---- |
-| accidents | 20 | -43.013852479702685 |0.1060613742496 |
-| baudio    | 20 | -57.89696501610615| 0.048066405337541 |
-| bnetflix  | 35 |  -81.90874704059635 | 0.044916129513427 |
-| dna       | 10 | -122.23491091081937 | 0.84590433387201 |
-| jester    | 20 | -76.72924057494347 | 	0.063910584527938 |
-| kdd       | 5  | -3.205472683258899 |	0.090707578406819 |
-| msnbc     | 2 | -9.371695548171562 | 0.00051037365791307 |
-| nltcs     | 30 | -8.66995719472829 | 0.0046464900810703 |
-| plants    | 45 | |
+| accidents | 20 | -43.02315820381605 | 0.07022918452296 |
+| baudio    | 17 | -57.942386730244735 | 	0.051457742610838 |
+| bnetflix  | 25 | -81.92602385013016|0.054851392050043 |
+| dna       | 5 | -123.28133639503503 |  0.69615156552362|
+| jester    | 15 | -76.68634915468888 | 0.038729768173449 |
+| kdd       | 4  | -3.160275601057566 | 0.07968753909482 |
+| msnbc     | 4 | -9.432363569169166 | 0.0018295014151395|
+| nltcs     | 35 | -8.772005572463344 |	0.30153215089816 |
+| plants    | 45 | -18.494230533241172 |0.038551314867443|
 
-#### Average Validation set loglikelihood for Bagging Model
+
+## Model 4
+
+The table below reports the average loglikelihood for different ***k*** values for Bagging Tree Bayesian Network.
+
+
+#### Average Validation set loglikelihood for various K values:
 
 | Dataset   |  K=2     | K=5      |    K=10  | K=15     | K=20     | K=25     | K=30     | K=35     |
 | --------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| accidents | -47.4221 | -47.3726 | -47.3545 | -47.3646 |
-| baudio    | -63.3407 | -63.0600 | -62.9284 | -62.8564 | -62.8653 |
+| accidents | -47.4221 | -47.3726 | -47.3545 | -47.3646 |||||
+| baudio    | -63.3407 | -63.0600 | -62.9284 | -62.8564 | -62.8653 ||||
 | bnetflix  | -86.7337 | -86.5793 | -86.5181 | -86.4848 | -86.4786 | -86.4692 | -86.4601 | -86.4612 |
-| dna       |-126.9819 |-126.5385 |-126.5386 |
-| jester    | -83.7051 | -83.2706 | -83.0843 | -83.0184 | -82.9490 | -82.9296 | -82.9335 |
-| kdd       | -3.6273  | -3.6078  |  -3.6028 |  -3.5987 |  -3.5994 |
-| msnbc     | -9.4335  | -9.4327  |  -9.4321 |  -9.4322 |
-| nltcs     | -9.6461  | -9.6194  |  -9.6108 |  -9.6162 |
-| plants    | -23.6958 | -23.6043 | -23.5397 | -23.5316 | -23.4963 | -23.5149 |
+| dna       |-126.9819 |-126.5385 |-126.5386 ||||||
+| jester    | -83.7051 | -83.2706 | -83.0843 | -83.0184 | -82.9490 | -82.9296 | -82.9335 ||
+| kdd       | -3.6273  | -3.6078  |  -3.6028 |  -3.5987 |  -3.5994 ||||
+| msnbc     | -9.4335  | -9.4327  |  -9.4321 |  -9.4322 |||||
+| nltcs     | -9.6461  | -9.6194  |  -9.6108 |  -9.6162 |||||
+| plants    | -23.6958 | -23.6043 | -23.5397 | -23.5316 | -23.4963 | -23.5149 ||||
 
-#### Thresholds for Bagging
+The best ***k*** value obtained in the above table were used for testing. The average loglikelihood obtained on the test set and the standard deviation are reported in the table below.
+
+#### Average Test set loglikelihood for the best K found using validation set:
 
 | Dataset   | K  | average | standard deviation |
-| -------   | -- | ----- | ---- |
+| -------   | -- | ------------------  | ---- |
 | accidents | 10 | -47.760117755939646 | 0.009526357789782 |
 | baudio    | 15 | -63.30822559021463| 0.025552648196439 |
 | bnetflix  | 30 | -86.43400231870228 | 	0.01280543482531 |
@@ -89,3 +215,6 @@ Q1:
 | msnbc     | 10 | -9.431685898962115 | 0.00089696029712054 |
 | nltcs     | 10 | -9.64984801796504 | 0.019723519696117 |
 | plants    | 20 | -23.495323868802004 | 0.026811381779713 |
+
+
+# Usage
